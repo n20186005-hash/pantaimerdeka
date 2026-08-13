@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoMark from '../components/LogoMark.astro';
+import type { LocaleKey } from '../i18n/config';
+import { locales } from '../i18n/config';
+import { localizePath } from '../i18n/routing';
+import { getContent } from '../i18n/content';
+interface Props { locale: LocaleKey; }
+const { locale } = Astro.props;
+const c = getContent(locale);
+const currentPath = Astro.url.pathname;
+const canonical = Astro.site ? new URL(currentPath, Astro.site) : undefined;
+const placeData = {
+  '@context': 'https://schema.org',
+  '@type': ['TouristAttraction', 'LocalBusiness'],
+  name: c.jsonLd.placeName,
+  ...(canonical ? { url: canonical.toString(), '@id': `${canonical.toString()}#pantai-merdeka` } : {}),
+  description: c.jsonLd.placeDescription,
+  address: { '@type': 'PostalAddress', streetAddress: c.jsonLd.streetAddress, addressLocality: c.jsonLd.addressLocality, postalCode: c.jsonLd.postalCode, addressRegion: c.jsonLd.addressRegion, addressCountry: c.jsonLd.addressCountry },
+  geo: { '@type': 'GeoCoordinates', latitude: 5.666111, longitude: 100.3675 },
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '00:00', closes: '23:59' }],
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.1', reviewCount: '5238', bestRating: '5', worstRating: '1' }
+};
+const faqData = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faq.items.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+const localeKeys = Object.keys(locales) as LocaleKey[];
+---
+<BaseLayout title={c.meta.title} description={c.meta.description} {locale}>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href={localizePath('/', locale)} aria-label={c.meta.brandLabel}>
+        <LogoMark class="brand-mark" />
+        <span>Pantai<br />Merdeka</span>
+      </a>
+      <nav class="nav" aria-label={c.nav.plan + ', ' + c.nav.food + ', ' + c.nav.directions + ', ' + c.nav.faq}>
+        <a href={localizePath('/#rancang', locale)}>{c.nav.plan}</a>
+        <a href={localizePath('/#rasa', locale)}>{c.nav.food}</a>
+        <a href={localizePath('/#arah', locale)}>{c.nav.directions}</a>
+        <a href={localizePath('/#soalan', locale)}>{c.nav.faq}</a>
+        <span class="lang-switch" role="group" aria-label={c.localeSwitch.label}>
+          {localeKeys.map((k, i) => (
+            <>
+              <a
+                class={`lang-link ${k === locale ? 'is-active' : ''}`}
+                href={localizePath('/', k)}
+                hreflang={k === 'zh' ? 'zh-Hans' : k}
+                aria-current={k === locale ? 'page' : undefined}
+              >{k.toUpperCase()}</a>
+              {i < localeKeys.length - 1 ? <span class="lang-sep" aria-hidden="true">/</span> : null}
+            </>
+          ))}
+        </span>
+      </nav>
+    </div>
+  </header>
+  <main id="kandungan">
+    <section id="utama" class="hero paper-grain" aria-labelledby="hero-title">
+      <img class="hero-photo" src="/gallery/pantai-merdeka-2.jpg" alt={c.alt.hero} />
+      <div class="hero-overlay"></div>
+      <svg class="topo hero-contours" viewBox="0 0 720 420" aria-hidden="true">
+        <path d="M12 330C120 203 134 391 270 259S430 70 522 228s135 83 187-52" />
+        <path d="M-8 363C115 233 167 437 313 289S454 110 552 261s100 53 188-48" />
+        <path d="M0 278c126-140 174 58 276-80S424 21 509 172s120 86 216-49" />
+        <path d="M45 211c106-101 142 43 239-70S424-17 495 116s121 79 193-40" />
+      </svg>
+      <div class="hero-inner">
+        <div class="hero-grid">
+          <div class="reveal">
+            <p class="eyebrow" style="color: var(--seafoam)">{c.hero.region}</p>
+            <h1 id="hero-title">{c.hero.title}</h1>
+            <p class="hero-lede">{c.hero.lede}</p>
+            <div class="hero-actions">
+              <a class="button button--warm" href={localizePath('/#arah', locale)}>{c.hero.primaryCta}</a>
+              <a class="button" href={localizePath('/#rancang', locale)}>{c.hero.secondaryCta}</a>
+            </div>
+          </div>
+          <aside class="hero-side reveal" aria-label="Maklumat ringkas">
+            <p>{c.hero.coordsLabel}</p>
+            <strong set:html={c.hero.coordsValue.replace(/\n/g, '<br />')} />
+            <p style="margin-top:1.5rem">{c.hero.accessLabel}</p>
+            <strong set:html={c.hero.accessValue.replace(/\n/g, '<br />')} />
+          </aside>
+        </div>
+      </div>
+      <div class="scroll-note">{c.hero.scrollNote}</div>
+    </section>
+
+    <section class="intro" data-stamp={c.stamps.intro} aria-labelledby="tentang-title">
+      <div class="intro-grid">
+        <div>
+          <p class="section-number">{c.intro.sectionNumber}</p>
+          <p class="eyebrow">{c.intro.eyebrow}</p>
+          <h2 class="section-title" id="tentang-title">{c.intro.title}</h2>
+          <p class="section-copy">{c.intro.copy}</p>
+          <dl class="facts">
+            <div class="fact"><dt>{c.intro.facts.location.label}</dt><dd>{c.intro.facts.location.value}</dd></div>
+            <div class="fact"><dt>{c.intro.facts.entry.label}</dt><dd>{c.intro.facts.entry.value}</dd></div>
+            <div class="fact"><dt>{c.intro.facts.suitable.label}</dt><dd>{c.intro.facts.suitable.value}</dd></div>
+            <div class="fact"><dt>{c.intro.facts.note.label}</dt><dd>{c.intro.facts.note.value}</dd></div>
+          </dl>
+        </div>
+        <figure class="intro-visual reveal">
+          <img src="/images/sunset-pantai-merdeka.jpg" alt={c.alt.sunset} loading="lazy" />
+          <figcaption class="photo-caption">{c.intro.caption}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="rancang" class="visit" data-stamp={c.stamps.visit} aria-labelledby="rancang-title">
+      <div class="visit-head">
+        <div>
+          <p class="section-number">{c.visit.sectionNumber}</p>
+          <p class="eyebrow">{c.visit.eyebrow}</p>
+          <h2 class="section-title" id="rancang-title">{c.visit.title}</h2>
+        </div>
+        <p class="section-copy">{c.visit.copy}</p>
+      </div>
+      <div class="visit-layout">
+        <div>
+          <dl class="info-list">
+            {c.visit.items.map(item => (
+              <div><dt>{item.label}</dt><dd>{item.value}</dd></div>
+            ))}
+          </dl>
+          {(() => {
+            const raw = c.visit.leaveNoTrace;
+            const m = raw.match(/^(.+?[.!?。！？])\s*(.*)$/s);
+            const first = m ? m[1] : raw;
+            const rest = m ? m[2] : '';
+            return <p class="visit-note"><strong>{first}</strong>{rest}</p>;
+          })()}
+        </div>
+        <aside class="visit-graphic paper-grain">
+          <div class="tide-note-art" aria-hidden="true">
+            <LogoMark />
+            <span set:html={c.visit.fieldNote.lines.join('<br />')} />
+          </div>
+          <p>{c.visit.fieldNote.tip}</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="experience" data-stamp={c.stamps.experience} aria-labelledby="buat-title">
+      <div class="experience-head">
+        <p class="section-number">{c.experience.sectionNumber}</p>
+        <p class="eyebrow">{c.experience.eyebrow}</p>
+        <h2 class="section-title" id="buat-title">{c.experience.title}</h2>
+      </div>
+      <div class="experience-grid">
+        <figure class="experience-photo reveal">
+          <img src="/images/walkway-pantai-merdeka.jpg" alt={c.alt.walkway} loading="lazy" />
+          <figcaption class="photo-tag">{c.experience.walkwayTag}</figcaption>
+        </figure>
+        <div class="experience-notes">
+          {c.experience.items.map(item => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="rasa" class="food" data-stamp={c.stamps.food} aria-labelledby="makan-title">
+      <div class="food-layout">
+        <div>
+          <p class="section-number">{c.food.sectionNumber}</p>
+          <p class="eyebrow">{c.food.eyebrow}</p>
+          <h2 class="section-title" id="makan-title">{c.food.title}</h2>
+          <p class="section-copy">{c.food.copy}</p>
+          <div class="food-list">
+            {c.food.items.map(item => (
+              <article>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <figure class="food-photo reveal">
+          <img src="/images/shade-pantai-merdeka.jpeg" alt={c.alt.shade} loading="lazy" />
+          {(() => {
+            const raw = c.food.caption;
+            const idx = raw.search(/[:：]/);
+            if (idx < 0) return <figcaption><strong>{raw}</strong></figcaption>;
+            const label = raw.slice(0, idx);
+            const sep = raw.slice(idx, idx + 1);
+            const rest = raw.slice(idx + 1);
+            return <figcaption><strong>{label}{sep}</strong>{rest}</figcaption>;
+          })()}
+        </figure>
+      </div>
+    </section>
+
+    <section id="arah" class="routes" data-stamp={c.stamps.routes} aria-labelledby="arah-title">
+      <div class="routes-grid">
+        <div>
+          <p class="section-number">{c.routes.sectionNumber}</p>
+          <p class="eyebrow">{c.routes.eyebrow}</p>
+          <h2 class="section-title" id="arah-title">{c.routes.title}</h2>
+          <p class="section-copy">{c.routes.copy}</p>
+          <div class="route-cards">
+            {c.routes.cards.map(card => (
+              <article class="route-card">
+                <span>{card.span}</span>
+                <h3>{card.title}</h3>
+                <p>{card.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe title="Peta Pantai Merdeka" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127050.24604874113!2d100.21504719726559!3d5.666757000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304b273c97b62277%3A0x5439c36b581a8d00!2sPantai%20Merdeka!5e0!3m2!1sms!2smy!4v1786602456303!5m2!1sms!2smy" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <span class="map-label">{c.routes.mapLabel}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="nearby" data-stamp={c.stamps.nearby} aria-labelledby="dekat-title">
+      <div class="nearby-head">
+        <p class="section-number" style="color:var(--seafoam)">{c.nearby.sectionNumber}</p>
+        <p class="eyebrow" style="color:var(--seafoam)">{c.nearby.eyebrow}</p>
+        <h2 class="section-title" id="dekat-title">{c.nearby.title}</h2>
+        <p class="section-copy">{c.nearby.copy}</p>
+      </div>
+      <div class="nearby-grid">
+        {c.nearby.cards.map(card => (
+          <article class="nearby-card">
+            <span>{card.span}</span>
+            <h3>{card.title}</h3>
+            <p>{card.copy}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="soalan" class="faq" data-stamp={c.stamps.faq} aria-labelledby="faq-title">
+      <div class="faq-grid">
+        <div>
+          <p class="section-number">{c.faq.sectionNumber}</p>
+          <p class="eyebrow">{c.faq.eyebrow}</p>
+          <h2 class="section-title" id="faq-title">{c.faq.title}</h2>
+          <p class="section-copy">{c.faq.copy}</p>
+        </div>
+        <div class="faq-list">
+          {c.faq.items.map(item => (
+            <details>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <a class="brand" href={localizePath('/', locale)}>
+        <LogoMark class="brand-mark" />
+        <span>Pantai<br />Merdeka</span>
+      </a>
+      <p>{c.footer.disclaimer}</p>
+      <div class="footer-links">
+        <a href={localizePath('/#rancang', locale)}>{c.footer.links.plan}</a>
+        <a href={localizePath('/#arah', locale)}>{c.footer.links.directions}</a>
+        <a href={localizePath('/#soalan', locale)}>{c.footer.links.faq}</a>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(placeData)}></script>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqData)}></script>
+</BaseLayout>

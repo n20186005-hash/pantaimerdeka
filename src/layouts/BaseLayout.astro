@@ -1,9 +1,51 @@
 ---
-// Garisan Pasang Surut — all metadata uses Astro's single site setting and drops absolute tags gracefully when no domain is configured.
+// Garisan Pasang Surut — multilingual base: dynamic lang tag, localized skip-link, hreflang alternates and per-locale OG image.
 import '../styles/global.css';
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+import type { LocaleKey } from '../i18n/config';
+import { locales } from '../i18n/config';
+import { hreflangEntries, localizePath } from '../i18n/routing';
+import { getContent } from '../i18n/content';
+interface Props {
+  title: string;
+  description: string;
+  locale: LocaleKey;
+}
+const { title, description, locale } = Astro.props;
+const c = getContent(locale);
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
-const shareImage = Astro.site ? new URL('/images/hero-pantai-merdeka.jpg', Astro.site) : undefined;
+const shareImage = Astro.site ? new URL('/gallery/pantai-merdeka-2.jpg', Astro.site) : undefined;
+const hreflangs = hreflangEntries(Astro.url.pathname, Astro.site);
+const htmlLang = locale === 'zh' ? 'zh-Hans' : locale;
 ---
-<!doctype html><html lang="ms"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} />{canonical && <link rel="canonical" href={canonical} />}<meta property="og:type" content="website" /><meta property="og:title" content={title} /><meta property="og:description" content={description} />{canonical && <meta property="og:url" content={canonical} />}{shareImage && <meta property="og:image" content={shareImage} />}<meta name="twitter:card" content={shareImage ? 'summary_large_image' : 'summary'} /><link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="icon" href="/favicon-32.svg" sizes="32x32" type="image/svg+xml" /><link rel="icon" href="/favicon-16.svg" sizes="16x16" type="image/svg+xml" /><link rel="apple-touch-icon" href="/apple-touch-icon.svg" sizes="180x180" /><link rel="manifest" href="/site.webmanifest" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><title>{title}</title><script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP"></script><script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){window.dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HXM22WWPKP');</script></head><body><a class="skip-link" href="#kandungan">Lompat ke kandungan</a><div class="page-rail" aria-hidden="true"></div><div class="site-shell"><slot /></div></body></html>
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {hreflangs.map(({ code, href }) => <link rel="alternate" hreflang={code} href={href} />)}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale === 'zh' ? 'zh_CN' : (locale === 'en' ? 'en_US' : 'ms_MY')} />
+    {(Object.keys(locales) as LocaleKey[]).filter(k => k !== locale).map(k => <meta property="og:locale:alternate" content={k === 'zh' ? 'zh_CN' : (k === 'en' ? 'en_US' : 'ms_MY')} />)}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {shareImage && <meta property="og:image" content={shareImage} />}
+    <meta name="twitter:card" content={shareImage ? 'summary_large_image' : 'summary'} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.svg" sizes="32x32" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-16.svg" sizes="16x16" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#kandungan">{c.meta.skipToContent}</a>
+    <div class="page-rail" aria-hidden="true"></div>
+    <div class="site-shell"><slot /></div>
+  </body>
+</html>
