@@ -1,0 +1,34 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "https://7f0548f6b28a1758d9bf7be630d36cb4.artifacts.cloudflare.net/git/prod/C4f25CReNrybU38MvSMC7H.git",
+    "expiration": "2026-08-14T06:44:52.932Z",
+    "token": "art_v2_x_12eadce4c80557caa9fd1585018d2babdfd81313?expires=1786689892",
+    "backend": "GIT_BACKEND_ARTIFACTS"
+  },
+  "name": "pantai-merdeka-visitor-site",
+  "path": "/home/ubuntu/pantai-merdeka-visitor-site",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "9ZWN6vV7kiJT3aWseGS3EZ",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "MUUMegX6WbxdhH6xQwj5Mw",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Winter Grady",
+    "OWNER_OPEN_ID": "YB6upwnaoa7fr4Sa33U3kW",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "11624e70-97e0-458b-a775-83d025208834",
+    "VITE_APP_ID": "C4f25CReNrybU38MvSMC7H",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "Pantai Merdeka · Laman Pelawat",
+    "VITE_FRONTEND_FORGE_API_KEY": "P5ULoE9QANCGiy67nJ5gPK",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
