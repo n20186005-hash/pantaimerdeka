@@ -3,7 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LogoMark from '../components/LogoMark.astro';
 import type { LocaleKey } from '../i18n/config';
 import { locales } from '../i18n/config';
-import { localizePath } from '../i18n/routing';
+import { localizePath, legalPagePath } from '../i18n/routing';
+import type { LegalPageKind } from '../i18n/routing';
 import { getContent } from '../i18n/content';
 interface Props { locale: LocaleKey; }
 const { locale } = Astro.props;
@@ -234,6 +235,32 @@ const localeKeys = Object.keys(locales) as LocaleKey[];
       </div>
     </section>
 
+    <section id="galeri" class="gallery" data-stamp={c.stamps.gallery} aria-labelledby="galeri-title">
+      <div class="gallery-head">
+        <div>
+          <p class="section-number">{c.gallery.sectionNumber}</p>
+          <p class="eyebrow">{c.gallery.eyebrow}</p>
+          <h2 class="section-title" id="galeri-title">{c.gallery.title}</h2>
+        </div>
+        <p class="section-copy">{c.gallery.copy}</p>
+      </div>
+      <div class="gallery-grid">
+        {c.gallery.photos.map((alt, i) => {
+          const n = i + 1;
+          const src = `/gallery/pantai-merdeka-${n}.jpg`;
+          return (
+            <figure class={`gallery-item gallery-item--${n} reveal`}>
+              <img src={src} alt={alt} loading="lazy" />
+              <figcaption class="gallery-caption">
+                <span class="gallery-caption-num">{String(n).padStart(2, '0')}</span>
+                <span class="gallery-caption-label">Pantai Merdeka</span>
+              </figcaption>
+            </figure>
+          );
+        })}
+      </div>
+    </section>
+
     <section id="soalan" class="faq" data-stamp={c.stamps.faq} aria-labelledby="faq-title">
       <div class="faq-grid">
         <div>
@@ -260,11 +287,22 @@ const localeKeys = Object.keys(locales) as LocaleKey[];
         <LogoMark class="brand-mark" />
         <span>Pantai<br />Merdeka</span>
       </a>
-      <p>{c.footer.disclaimer}</p>
-      <div class="footer-links">
-        <a href={localizePath('/#rancang', locale)}>{c.footer.links.plan}</a>
-        <a href={localizePath('/#arah', locale)}>{c.footer.links.directions}</a>
-        <a href={localizePath('/#soalan', locale)}>{c.footer.links.faq}</a>
+      <div class="footer-text-block">
+        <p>{c.footer.disclaimer}</p>
+        <p class="footer-copyright"><strong>{c.footer.copyright}</strong></p>
+        <p class="footer-imagerights">{c.footer.imageRights}</p>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-links footer-links--nav">
+          <a href={localizePath('/#rancang', locale)}>{c.footer.links.plan}</a>
+          <a href={localizePath('/#arah', locale)}>{c.footer.links.directions}</a>
+          <a href={localizePath('/#soalan', locale)}>{c.footer.links.faq}</a>
+        </div>
+        <div class="footer-links footer-links--legal">
+          <a href={legalPagePath(locale, 'privacy')}>{c.footer.legal.privacy}</a>
+          <a href={legalPagePath(locale, 'terms')}>{c.footer.legal.terms}</a>
+          <a href={legalPagePath(locale, 'cookies')}>{c.footer.legal.cookies}</a>
+        </div>
       </div>
     </div>
   </footer>

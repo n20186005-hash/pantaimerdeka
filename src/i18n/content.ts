@@ -96,6 +96,13 @@ export interface ContentDictionary {
     copy: string;
     cards: { span: string; title: string; copy: string }[];
   };
+  gallery: {
+    sectionNumber: string;
+    eyebrow: string;
+    title: string;
+    copy: string;
+    photos: string[];
+  };
   faq: {
     sectionNumber: string;
     eyebrow: string;
@@ -106,6 +113,33 @@ export interface ContentDictionary {
   footer: {
     disclaimer: string;
     links: { plan: string; directions: string; faq: string };
+    legal: { privacy: string; terms: string; cookies: string };
+    copyright: string;
+    imageRights: string;
+  };
+  legal: {
+    privacy: {
+      meta: { title: string; description: string };
+      pageTitle: string;
+      updated: string;
+      intro: string;
+      sections: { heading: string; paragraphs: string[]; list?: string[] }[];
+    };
+    terms: {
+      meta: { title: string; description: string };
+      pageTitle: string;
+      updated: string;
+      intro: string;
+      sections: { heading: string; paragraphs: string[]; list?: string[] }[];
+    };
+    cookies: {
+      meta: { title: string; description: string };
+      pageTitle: string;
+      updated: string;
+      intro: string;
+      categories: { name: string; chip: string; status: string; desc: string; items?: { name: string; chip: string; status: string; desc: string }[] }[];
+      management: { title: string; paragraphs: string[]; actions: { save: string; reject: string } };
+    };
   };
   alt: AltTextSet;
   stamps: {
@@ -115,6 +149,7 @@ export interface ContentDictionary {
     food: string;
     routes: string;
     nearby: string;
+    gallery: string;
     faq: string;
   };
   jsonLd: {
@@ -232,8 +267,29 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { span: 'Pemandangan jauh', title: 'Gunung Jerai', copy: 'Gunung ikonik Kedah yang kadangkala membingkai pandangan dari pesisir ketika cuaca mengizinkan.' }
       ]
     },
+    gallery: {
+      sectionNumber: '07 — Galeri lapangan',
+      eyebrow: 'Gambar sebenar',
+      title: 'Rekaan garis air, dalam 13 bingkai.',
+      copy: 'Seretan gambar pantai sebenar Pantai Merdeka — dicatat tanpa penapis komersial, untuk memberikan gambaran keadaan tempat sebelum lawatan anda.',
+      photos: [
+        'Pemandangan luas pesisir Pantai Merdeka dengan langit cerah dan hamparan pasir',
+        'Garisan pantai Pantai Merdeka dengan warna laut biru kehijauan dan ombak kecil',
+        'Pohon-pohon pesisir di sepanjang laluan tepi Pantai Merdeka',
+        'Cahaya petang lembut menyentuh permukaan laut Pantai Merdeka',
+        'Hamparan pasir Pantai Merdeka dilihat dari sudut rendah, bersebelahan air',
+        'Pemandangan ke arah laut terbuka Pantai Merdeka pada waktu siang',
+        'Kawasan berteduh dengan pepohon di sekitar Pantai Merdeka',
+        'Laluan berjalan menghubungkan kawasan letak kereta dengan pantai',
+        'Langit petang berwarna jingga kebiruan di atas permukaan Pantai Merdeka',
+        'Ombak kecil menyentuh garis pasir Pantai Merdeka',
+        'Pemandangan luas ke persekitaran kampung pesisir berhampiran Pantai Merdeka',
+        'Cahaya senja menyinari pokok-pokok tepi Pantai Merdeka',
+        'Laut Selat Melaka dilihat dari pantai Pantai Merdeka, cuaca tenang'
+      ]
+    },
     faq: {
-      sectionNumber: '07 — Tanya dahulu',
+      sectionNumber: '08 — Tanya dahulu',
       eyebrow: 'FAQ',
       title: 'Jawapan ringkas sebelum bertolak.',
       copy: 'Maklumat praktikal berubah mengikut cuaca, cuti dan pengendali. Gunakan soalan ini sebagai persediaan, kemudian semak keadaan di lokasi.',
@@ -246,8 +302,63 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       ]
     },
     footer: {
-      disclaimer: 'Tapak ini ialah panduan pelawat tidak rasmi dan tidak berafiliasi dengan mana-mana pihak berkuasa, pengendali tarikan atau Google. Maklumat kemudahan, cuaca, bot dan perniagaan boleh berubah; sahkan terus sebelum lawatan.',
-      links: { plan: 'Rancang', directions: 'Arah', faq: 'FAQ' }
+      disclaimer: 'Tapak ini ialah panduan pelawat tidak rasmi dan tidak berafiliasi dengan Majlis Perbandaran Kota Kuala Muda, Lembaga Pelancongan Negeri Kedah, Tourism Malaysia, mana-mana pengendali tarikan atau Google. Maklumat kemudahan, cuaca, bot dan perniagaan boleh berubah; sahkan terus sebelum lawatan.',
+      links: { plan: 'Rancang', directions: 'Arah', faq: 'FAQ' },
+      legal: { privacy: 'Privasi', terms: 'Terma', cookies: 'Kuki' },
+      copyright: '© 2026 Panduan Pelawat Pantai Merdeka · Hak cipta terpelihara.',
+      imageRights: 'Hak cipta dan hak harta intelek semua gambar yang dipaparkan di laman ini kekal milik penggambar asal.'
+    },
+    legal: {
+      privacy: {
+        meta: { title: 'Dasar Privasi · Panduan Pelawat Pantai Merdeka', description: 'Dasar privasi rasmi untuk Panduan Pelawat Pantai Merdeka, Kota Kuala Muda — jenis data yang dikumpul, penggunaan, pihak ketiga dan hak anda di bawah Akta Perlindungan Data Peribadi 2010 (APDP) serta GDPR.' },
+        pageTitle: 'Dasar Privasi',
+        updated: 'Masa kemas kini terakhir: Ogos 2026',
+        intro: 'Panduan Pelawat Pantai Merdeka yang diselenggara di bawah inisiatif panduan pelawat tidak rasmi untuk pesisir Kuala Muda, Kedah komited untuk melindungi privasi pelawat. Dasar ini menerangkan jenis data minimum yang dikumpul, cara ia digunakan, pihak ketiga yang terlibat, serta hak anda di bawah Akta Perlindungan Data Peribadi 2010 (Malaysia) dan, jika berkenaan, Peraturan Perlindungan Data Am (GDPR) Kesatuan Eropah.',
+        sections: [
+          { heading: 'Maklumat yang kami kumpul', paragraphs: ['Kami hanya mengumpul data minimum yang perlu untuk penyampaian kandungan dan fungsi laman yang stabil. Dalam keadaan biasa, set data ini mungkin terdiri daripada perkara berikut:'], list: ['Data log pelayaran standard: alamat IP, jenis penyemak imbas, halaman yang diminta, rujukan keluar dan masa lawatan', 'Kuki teknikal yang perlu dan storan tempatan (localStorage) untuk mengingati keutamaan bahasa atau tetapan persetujuan kuki jika dinyatakan', 'Maklumat yang diberikan secara sukarela melalui borang hubungan atau emel, sekiranya anda memilih untuk menghubungi kami'] },
+          { heading: 'Cara maklumat digunakan', paragraphs: ['Data yang dikumpul digunakan secara eksklusif untuk tujuan berikut, tanpa penyeragaman iklan bertarget pada pihak pertama:'], list: ['Memperbaiki kandungan, struktur dan kebolehgunaan laman berdasarkan pola penggunaan agregat', 'Memantau kestabilan pelayan, mengenal pasti ralat dan mengoptimumkan penghantaran sumber statik', 'Menyah balik permintaan, soalan atau maklum balas pelawat', 'Mematuhi kewajipan undang-undang yang dikenakan kepada penerbit laman di Malaysia'] },
+          { heading: 'Perkhidmatan pihak ketiga', paragraphs: ['Laman ini boleh memuatkan kandungan terbenam atau prasyarat luar yang dikendalikan oleh pihak ketiga. Setiap perkhidmatan ini mempunyai dasar privasi sendiri yang berasingan dan bebas daripada dasar ini.'], list: ['Peta Google (Google Maps): benam peta untuk arah lokasi Pantai Merdeka; boleh menetapkan kuki pihak ketiga bawah domain Google LLC', 'Prestasi dan penghantaran sumber pada platform penerbitan Cloudflare Pages; log capaian terurus mengikut dasar privasi Cloudflare', 'Tiada analitik tingkah laku pihak pertama (contoh: Google Analytics) diaktifkan secara lalai; sekiranya diaktifkan kemudian, persetujuan eksplisit akan diminta terlebih dahulu'] },
+          { heading: 'Hak anda', paragraphs: ['Bergantung kepada tempat kediaman dan undang-undang yang terpakai, anda mungkin berhak terhadap perkara berikut:'], list: ['Mengakses salinan data peribadi yang berkaitan dengan anda yang dipegang oleh penerbit laman', 'Meminta pembetulan atau penghapusan data peribadi yang tidak tepat, tidak lengkap atau tidak lagi diperlukan', 'Membantah pemprosesan yang berdasarkan kepentingan sah atau membuat pilihan mengenai persetujuan pemprosesan', 'Mengemukakan aduan kepada Pihak Berkuasa Perlindungan Data Malaysia di bawah Kementerian Komunikasi dan Digital, atau kepada badan penyelia perlindungan data yang berwibawa di Kesatuan Eropah jika berkenaan'] },
+          { heading: 'Perubahan kepada dasar ini', paragraphs: ['Kami boleh mengemas kini Dasar Privasi ini dari semasa ke semasa untuk mencerminkan perubahan teknikal, struktur undang-undang atau penambahan perkhidmatan. Tarikh kemas kini terakhir yang dipaparkan di atas menandakan semakan terbaru.'] }
+        ]
+      },
+      terms: {
+        meta: { title: 'Terma Penggunaan · Panduan Pelawat Pantai Merdeka', description: 'Terma dan syarat penggunaan untuk Panduan Pelawat Pantai Merdeka, Kota Kuala Muda — kandungan rujukan, penafian ketepatan, hak harta intelek dan had liabiliti.' },
+        pageTitle: 'Terma Penggunaan',
+        updated: 'Masa kemas kini terakhir: Ogos 2026',
+        intro: 'Dengan mengakses atau menggunakan laman Panduan Pelawat Pantai Merdeka ini, anda bersetuju untuk terikat dengan Terma Penggunaan berikut. Laman ini diterbitkan di bawah inisiatif panduan pelawat tidak rasmi yang berdiri sendiri dan tidak berafiliasi dengan Majlis Perbandaran Kota Kuala Muda, Lembaga Pelancongan Negeri Kedah, Tourism Malaysia mahupun mana-mana pengendali tarikan komersial.',
+        sections: [
+          { heading: 'Penggunaan kandungan', paragraphs: ['Semua kandungan laman termasuk teks, gambar rajah, tajuk dan susun atur adalah untuk tujuan maklumat am sahaja. Laman ini tidak bertujuan sebagai nasihat perjalanan profesional, nasihat undang-undang atau saranan kewangan.'] },
+          { heading: 'Ketepatan maklumat', paragraphs: ['Kami berusaha untuk menyiarkan maklumat yang tepat dan semasa mengenai Pantai Merdeka dan sekitar Kuala Muda. Walau bagaimanapun, kami tidak memberikan jaminan sama ada tersurat atau tersirat mengenai kelengkapan, ketepatan, kebolehpercayaan atau kesesuaian maklumat tersebut.'], list: ['Waktu operasi, tambang bot, yuran tempat letak kereta, kadar bayaran kemudahan dan senarai perniagaan tempatan boleh berubah pada bila-bila masa tanpa notis awal', 'Anda disyorkan secara tegas untuk mengesahkan maklumat penting terus dengan pihak berkuasa tempatan, pengendali tarikan atau perniagaan pilihan anda sebelum memulakan perjalanan'] },
+          { heading: 'Hak harta intelek', paragraphs: ['Reka bentuk laman, seni grafik asal, struktur maklumat dan semua teks editorial yang dihasilkan khas untuk Panduan Pelawat Pantai Merdeka adalah hak cipta penerbit projek.', 'Hak cipta dan hak harta intelek semua gambar yang dipaparkan di laman ini (termasuk galeri lapangan Pantai Merdeka) kekal milik penggambar asal. Penggunaan semula gambar sedemikian di luar konteks laman ini memerlukan kebenaran bertulis daripada pemegang hak cipta masing-masing.'], list: ['Data peta dan peta benam digunakan menurut Terma Perkhidmatan Google Maps yang sedia ada', 'Rujukan nama pihak ketiga, jenama dan agensi kerajaan dibuat secara adil tanpa niat untuk menuntut pengiktirafan atau hubungan gabungan'] },
+          { heading: 'Had liabiliti', paragraphs: ['Laman ini disediakan berdasarkan "apa adanya" dan "sebagaimana yang sedia ada" tanpa sebarang jaminan, sama ada tersurat atau tersirat, termasuk tetapi tidak terhad kepada jaminan boleh diperdagangkan dan kesesuaian untuk tujuan tertentu.'], list: ['Dalam skop maksimum yang dibenarkan oleh undang-undang Malaysia, penerbit laman tidak akan bertanggungjawab atas apa-apa kerugian langsung, tidak langsung, sampingan, khas atau akibat yang timbul daripada atau berkaitan dengan penggunaan laman ini', 'Had ini termasuk, tanpa mengehadkan, keputusan perjalanan yang dibuat berdasarkan kandungan laman, gangguan capaian, ketiadaan perkhidmatan atau kerosakan kepada peranti semasa capaian'] },
+          { heading: 'Pautan luar', paragraphs: ['Laman ini boleh mengandungi pautan ke laman web luar yang dikendalikan oleh pihak ketiga. Kami tidak mengawal dan tidak bertanggungjawab ke atas kandungan, dasar privasi atau amalan mana-mana laman luar yang dipautkan. Lawatan anda ke laman luar adalah atas risiko anda sendiri.'] },
+          { heading: 'Perubahan terma', paragraphs: ['Terma Penggunaan ini boleh disemak dari semasa ke semasa. Penggunaan laman yang berterusan selepas semakan terma diterbitkan menandakan penerimaan anda terhadap semakan tersebut.'] }
+        ]
+      },
+      cookies: {
+        meta: { title: 'Tetapan Kuki · Panduan Pelawat Pantai Merdeka', description: 'Penjelasan kategori kuki yang digunakan di laman Panduan Pelawat Pantai Merdeka, kuki perlu, pilihan, penganalisis dan pemasaran, serta cara menguruskan persetujuan.' },
+        pageTitle: 'Tetapan Kuki',
+        updated: 'Masa kemas kini terakhir: Ogos 2026',
+        intro: 'Panduan Pelawat Pantai Merdeka menggunakan teknologi storan ringan seperti kuki dan localStorage hanya pada tahap minimum untuk mengekalkan fungsi teras laman. Halaman ini menerangkan setiap kategori yang mungkin wujud, item dalam kategori tersebut dan status lalai semasa penerbitan.',
+        categories: [
+          { name: 'Kuki Perlu', chip: 'Kategori', status: 'Sentiasa aktif', desc: 'Kuki dan storan tempatan ini adalah kritikal untuk fungsi asas laman termasuk keselamatan capaian, pengesahan tetapan persetujuan kuki dan kebolehan menukar pilihan bahasa antara muka tanpa memerlukan skrip luar.', items: [
+            { name: 'Kuki Persetujuan', chip: 'Perlu', status: 'Sentiasa aktif', desc: 'Menyimpan catatan pilihan persetujuan kuki yang telah dinyatakan oleh pelawat sekiranya dialog persetujuan disediakan; ia tidak disediakan untuk tujuan penjejakan luar.' },
+            { name: 'Keutamaan Antaramuka', chip: 'Perlu', status: 'Aktif jika ditetapkan', desc: 'Mengingati pilihan bahasa penyemak imbas dan tetapan mod visual (jika ditambah kemudian) supaya tetapan anda dikekalkan di antara halaman.' }
+          ]},
+          { name: 'Kuki Analitik', chip: 'Kategori', status: 'Lalai: tidak aktif', desc: 'Kuki yang dikendalikan oleh perkhidmatan analitik untuk mengagregatkan data tingkah laku pelawat secara tanpa nama. Dalam versi semasa penerbitan, tiada pakej analitik pihak pertama (contoh: Google Analytics) dipasang. Jika analitik diaktifkan kemudian, ia hanya berfungsi selepas persetujuan eksplisit.', items: [
+            { name: 'Analitik Prestasi Laman', chip: 'Pilihan', status: 'Tidak aktif', desc: 'Didaftarkan sebagai kemungkinan susun atur hadapan; tiada skrip semakan atau pengagregatan data dipasang semasa kemas kini terakhir.' }
+          ]},
+          { name: 'Kuki Keutamaan', chip: 'Kategori', status: 'Lalai: tidak aktif', desc: 'Kuki pilihan untuk mengingati tetapan visual atau pilihan susun atur. Pada masa ini, tiada kuki keutamaan tambahan diletakkan oleh skrip pertama laman.', items: [
+            { name: 'Keutamaan Pengguna', chip: 'Pilihan', status: 'Tidak aktif', desc: 'Ditugaskan untuk kegunaan ciri keutamaan visual pada masa hadapan, jika ditambah.' }
+          ]},
+          { name: 'Kuki Pemasaran', chip: 'Kategori', status: 'Lalai: tidak aktif', desc: 'Kuki iklan bertarget dan penjejakan kempen pemasaran. Tiada kuki pemasaran diletakkan oleh Panduan Pelawat Pantai Merdeka. Sekiranya ditambah kemudian, persetujuan eksplisit akan diperlukan.', items: [
+            { name: 'Iklan Peribadi', chip: 'Pemasaran', status: 'Tidak aktif', desc: 'Ditetapkan untuk menandakan tidak sebarang iklan bertarget berdasarkan minat pelawat; kekal tidak aktif pada versi semasa.' }
+          ]},
+          { name: 'Kuki Pihak Ketiga', chip: 'Kategori', status: 'Di luar kawalan penerbit', desc: 'Peta benam Google Maps dan sumber pramuat Google Fonts boleh menetapkan kuki pihak ketiga di bawah domain Google LLC untuk tujuan keselamatan, pengesahan sesi dan kustomisasi peta. Kuki ini tidak boleh dilumpuhkan melalui tetapan pihak pertama laman ini.', items: [] }
+        ],
+        management: { title: 'Pengurusan Persetujuan', paragraphs: ['Anda boleh mengubah tetapan kuki pada bila-bila masa dengan menyunting pilihan penyemak imbas anda. Sila rujuk dokumentasi rasmi penyemak imbas pilihan anda untuk langkah memadam atau menyekat kuki. Harap maklum bahawa menyekat kuki perlu boleh menjejaskan sebahagian fungsi laman.', 'Jika dialog persetujuan kuki disediakan dalam kemas kini akan datang, dua tindakan berikut akan disediakan:'], actions: { save: 'Simpan Keutamaan', reject: 'Tolak Semua' } }
+      }
     },
     alt: {
       hero: 'Pemandangan pantai dan laut di Pantai Merdeka',
@@ -262,6 +373,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       food: 'WARUNG · PESISIR',
       routes: 'LALUAN · DARAT & AIR',
       nearby: 'MERBOK · KUALA MUDA',
+      gallery: 'GALERI · 13 BINGKAI',
       faq: 'SEMAK DI LOKASI'
     },
     jsonLd: {
@@ -377,8 +489,29 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { span: 'Distant view', title: 'Gunung Jerai', copy: 'The iconic Kedah peak that occasionally frames the coastal horizon when the weather permits.' }
       ]
     },
+    gallery: {
+      sectionNumber: '07 — Field gallery',
+      eyebrow: 'Actual photography',
+      title: 'The tide line, recorded in thirteen frames.',
+      copy: 'A sequence of genuine Pantai Merdeka coastal photographs — documented without commercial filters, to give visitors an unmediated sense of the place before arrival.',
+      photos: [
+        'Wide view of the Pantai Merdeka shoreline under clear sky, extending along the sand',
+        'Pantai Merdeka tide line with blue-green coastal water and small breaking waves',
+        'Coastal trees and vegetation along the edge path at Pantai Merdeka',
+        'Soft late-afternoon light touching the sea surface at Pantai Merdeka',
+        'Low-angle view of the Pantai Merdeka sand stretch next to the water',
+        'Open sea view from Pantai Merdeka during daylight hours',
+        'Shaded tree-covered area in the immediate vicinity of Pantai Merdeka',
+        'Pedestrian walkway linking the parking vicinity with the Pantai Merdeka shore',
+        'Late sky with warm orange and blue tones above the Pantai Merdeka coast',
+        'Small tide-driven waves touching the Pantai Merdeka sand edge',
+        'Wide view of the adjacent coastal village setting around Pantai Merdeka',
+        'Golden dusk light falling on the bordering trees at Pantai Merdeka',
+        'Calm view of the Strait of Malacca littoral from Pantai Merdeka, settled weather'
+      ]
+    },
     faq: {
-      sectionNumber: '07 — Ask first',
+      sectionNumber: '08 — Ask first',
       eyebrow: 'FAQ',
       title: 'Short answers before you leave.',
       copy: 'Practical information shifts with the weather, holidays and operator decisions. Use these questions as preparation, then confirm conditions on site.',
@@ -391,8 +524,63 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       ]
     },
     footer: {
-      disclaimer: 'This site is an unofficial visitor guide and is not affiliated with any authority, attraction operator or Google. Facilities, weather, boats and business details can change; confirm directly before visiting.',
-      links: { plan: 'Plan', directions: 'Directions', faq: 'FAQ' }
+      disclaimer: 'This site is an unofficial visitor guide and is not affiliated with Majlis Perbandaran Kota Kuala Muda (MPKM), Lembaga Pelancongan Negeri Kedah, Tourism Malaysia, any attraction operator or Google. Facilities, weather, boats and business details can change; confirm directly before visiting.',
+      links: { plan: 'Plan', directions: 'Directions', faq: 'FAQ' },
+      legal: { privacy: 'Privacy', terms: 'Terms', cookies: 'Cookies' },
+      copyright: '© 2026 Pantai Merdeka Visitor Guide. All rights reserved.',
+      imageRights: 'Proprietary rights and copyright in all photographs displayed on this site remain vested in their respective original photographers.'
+    },
+    legal: {
+      privacy: {
+        meta: { title: 'Privacy Policy · Pantai Merdeka Visitor Guide', description: 'Official privacy policy for the Pantai Merdeka Visitor Guide, Kota Kuala Muda — data collected, usage, third parties and your rights under the Malaysian Personal Data Protection Act 2010 and the EU GDPR.' },
+        pageTitle: 'Privacy Policy',
+        updated: 'Last updated: August 2026',
+        intro: 'The Pantai Merdeka Visitor Guide, published under an independent, non-commercial coastal visitor-guide initiative for the Kuala Muda shoreline, is committed to protecting the privacy of every visitor. This policy describes the minimum data collected, how it is used, the third parties involved and your rights under the Personal Data Protection Act 2010 (Malaysia) and, where applicable, the General Data Protection Regulation (GDPR) of the European Union.',
+        sections: [
+          { heading: 'Information we collect', paragraphs: ['We only collect the minimum data necessary for the reliable delivery of content and stable functioning of the site. Under ordinary circumstances this dataset may include the following:'], list: ['Standard access-log data: IP address, browser type, pages requested, referring URL and visit timestamp', 'Necessary technical cookies and browser localStorage used to remember interface-language preference or explicit cookie-consent choice when offered', 'Any information you submit voluntarily through a contact form or by email, should you choose to reach out'] },
+          { heading: 'How we use your information', paragraphs: ['The data collected is used exclusively for the following purposes, with no first-party targeted advertising pipelines:'], list: ['Improving site content, structure and usability based on aggregated usage patterns', 'Monitoring server stability, identifying errors and optimising static-asset delivery', 'Responding to requests, queries or visitor feedback', 'Complying with the legal obligations incumbent on a Malaysian-based web publisher'] },
+          { heading: 'Third-party services', paragraphs: ['The site may include embedded content or external preconditions handled by third parties. Each such service maintains its own independent privacy policy, separate from this one.'], list: ['Google Maps: embedded maps used for Pantai Merdeka location directions; may set third-party cookies under the Google LLC domain', 'Cloudflare Pages platform for performance and asset delivery; access logs handled in accordance with the Cloudflare Privacy Policy', 'No first-party behavioural analytics package (for example, Google Analytics) is enabled by default; should one be activated in a later build, explicit consent will be requested first'] },
+          { heading: 'Your rights', paragraphs: ['Depending on your jurisdiction and the applicable law, you may be entitled to the following:'], list: ['Requesting access to a copy of any personal data the site publisher holds relating to you', 'Requesting the correction or erasure of personal data that is inaccurate, incomplete or no longer required', 'Objecting to processing based on legitimate interest, or registering a preference regarding consent-based processing', 'Submitting a complaint to the Malaysian Personal Data Protection Commissioner under the Ministry of Communications and Digital, or to a competent EU supervisory authority where GDPR applies'] },
+          { heading: 'Changes to this policy', paragraphs: ['We may update this Privacy Policy from time to time to reflect technical changes, regulatory updates or the addition of new services. The "Last updated" date shown above denotes the most recent revision.'] }
+        ]
+      },
+      terms: {
+        meta: { title: 'Terms of Service · Pantai Merdeka Visitor Guide', description: 'Terms and conditions of use for the Pantai Merdeka Visitor Guide, Kota Kuala Muda — reference content, accuracy disclaimers, intellectual property and liability limitation.' },
+        pageTitle: 'Terms of Service',
+        updated: 'Last updated: August 2026',
+        intro: 'By accessing or using the Pantai Merdeka Visitor Guide website, you agree to be bound by these Terms of Service. This site is published under a standalone, unofficial visitor-guide initiative and is not affiliated with the Majlis Perbandaran Kota Kuala Muda, Lembaga Pelancongan Negeri Kedah, Tourism Malaysia or any commercial attraction operator.',
+        sections: [
+          { heading: 'Use of content', paragraphs: ['All site content, including text, diagrams, headings and layout, is for general informational purposes only. The site is not intended as professional travel advice, legal advice or financial recommendation of any kind.'] },
+          { heading: 'Accuracy of information', paragraphs: ['We strive to publish accurate and current information concerning Pantai Merdeka and the surrounding Kuala Muda coastal district. However, we make no representations or warranties, express or implied, as to the completeness, accuracy, reliability or suitability of that information.'], list: ['Operating hours, boat fares, parking rates, amenity fees and local-business listings may change at any time without prior notice', 'You are strongly encouraged to confirm critical information directly with the local authority, attraction operator or chosen establishment before undertaking your journey'] },
+          { heading: 'Intellectual property', paragraphs: ['The site design, original graphic artwork, information architecture and all editorial text produced for the Pantai Merdeka Visitor Guide are the copyright of the project publisher.', 'Proprietary rights and copyright in all photographs displayed on this site — including the Pantai Merdeka field gallery — remain vested in their respective original photographers. Reproduction of these images outside this site requires prior written consent from each individual copyright holder.'], list: ['Map data and embedded map widgets are used in accordance with the prevailing Google Maps Terms of Service', 'All third-party names, trademarks and government agencies are referenced fairly, without any claim of endorsement or affiliation'] },
+          { heading: 'Limitation of liability', paragraphs: ['The site is provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied, including but not limited to warranties of merchantability and fitness for a particular purpose.'], list: ['To the fullest extent permitted under Malaysian law, the site publisher shall not be liable for any direct, indirect, incidental, special, consequential or punitive damages arising out of or in connection with the use of this site', 'This limitation includes, without limitation, travel decisions made on the basis of site content, service interruptions, unavailability of the service or damage to your access device during use'] },
+          { heading: 'External links', paragraphs: ['This site may contain links to external websites operated by third parties. We do not control and assume no responsibility for the content, privacy policies or practices of any linked third-party website. Your visit to any external website is undertaken entirely at your own risk.'] },
+          { heading: 'Revisions to terms', paragraphs: ['These Terms of Service may be revised from time to time. Continued use of the site following the publication of revised terms constitutes your acceptance of the updated text.'] }
+        ]
+      },
+      cookies: {
+        meta: { title: 'Cookie Settings · Pantai Merdeka Visitor Guide', description: 'Explanation of cookie categories used on the Pantai Merdeka Visitor Guide — necessary, preference, analytics and marketing cookies, plus consent management.' },
+        pageTitle: 'Cookie Settings',
+        updated: 'Last updated: August 2026',
+        intro: 'The Pantai Merdeka Visitor Guide deploys lightweight storage technologies such as cookies and browser localStorage only at the minimum level required to preserve core functionality. This page explains each possible category, the items within them and their default status at the time of publication.',
+        categories: [
+          { name: 'Necessary Cookies', chip: 'Category', status: 'Always active', desc: 'These cookies and local storage entries are critical for the site\'s baseline functioning, including access security, cookie-consent verification and the ability to preserve interface-language preference without relying on external scripts.', items: [
+            { name: 'Consent Cookie', chip: 'Necessary', status: 'Always active', desc: 'Stores a record of the explicit cookie preferences chosen by the visitor whenever a consent dialog is presented; it is never used for cross-site tracking purposes.' },
+            { name: 'Interface Preference', chip: 'Necessary', status: 'Active if set', desc: 'Remembers the browser language selection and any visual-mode preference (if added in a future release) so that your settings persist across pages.' }
+          ]},
+          { name: 'Analytics Cookies', chip: 'Category', status: 'Default: inactive', desc: 'Cookies operated by analytics services that aggregate visitor behavioural data on an anonymous basis. In the current published build, no first-party analytics package — for example, Google Analytics — is installed. Should analytics ever be activated, it will only function after explicit opt-in consent has been obtained.', items: [
+            { name: 'Site Performance Analytics', chip: 'Optional', status: 'Inactive', desc: 'Registered as a placeholder for a possible future frontend arrangement; no auditing script or data aggregation pipeline is installed at the time of the last update.' }
+          ]},
+          { name: 'Preference Cookies', chip: 'Category', status: 'Default: inactive', desc: 'Preference-related cookies used to remember visual or layout choices. At present, no additional preference cookies are emitted by the site\'s first-party scripts.', items: [
+            { name: 'User Preferences', chip: 'Optional', status: 'Inactive', desc: 'Reserved for future visual-preference features, should such functionality be added.' }
+          ]},
+          { name: 'Marketing Cookies', chip: 'Category', status: 'Default: inactive', desc: 'Targeted advertising cookies and marketing-campaign tracking. No marketing cookies are placed by the Pantai Merdeka Visitor Guide. Should any be added at a later date, explicit opt-in consent will be required first.', items: [
+            { name: 'Personalised Advertising', chip: 'Marketing', status: 'Inactive', desc: 'Placeholder indicating that no interest-based advertising is served on this site; remains in inactive state in the current build.' }
+          ]},
+          { name: 'Third-party Cookies', chip: 'Category', status: 'Outside publisher control', desc: 'The Google Maps embedded widget and Google Fonts preconnect sources may set third-party cookies under the Google LLC domain for security, session-authentication and map-customisation purposes. These cookies cannot be disabled via the first-party settings controls offered by this site.', items: [] }
+        ],
+        management: { title: 'Consent Management', paragraphs: ['You can change your cookie settings at any time by modifying your browser-level options. Please refer to the official documentation of your chosen browser for step-by-step instructions on how to delete or block cookies. Note that blocking necessary cookies may impair some site functionality.', 'If a cookie-consent banner is provided in a future release, the following actions will be surfaced:'], actions: { save: 'Save Preferences', reject: 'Reject All' } }
+      }
     },
     alt: {
       hero: 'Coastal and seascape view at Pantai Merdeka',
@@ -407,6 +595,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       food: 'STALL · COASTAL',
       routes: 'ROUTE · LAND & WATER',
       nearby: 'MERBOK · KUALA MUDA',
+      gallery: 'FIELD GALLERY · 13 FRAMES',
       faq: 'VERIFY ON SITE'
     },
     jsonLd: {
@@ -522,8 +711,29 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { span: '远方轮廓', title: 'Gunung Jerai（杰来山）', copy: '吉打州标志性山峰，在天气允许时，偶可从海岸一带望见其轮廓。' }
       ]
     },
+    gallery: {
+      sectionNumber: '07 — 实地相册',
+      eyebrow: '实景记录',
+      title: '潮汐的轮廓，十三帧如实记录。',
+      copy: '一组未经过商业化调色修饰的 Pantai Merdeka（独立海滩）实拍影像，用于在到访前为访客提供未经中介的实地环境参考。',
+      photos: [
+        'Pantai Merdeka（独立海滩）沿岸全景，晴日天空下的沙滩绵延',
+        'Pantai Merdeka（独立海滩）水际线，蓝绿色近岸海水与细碎波浪',
+        'Pantai Merdeka（独立海滩）边缘路径沿线的海岸植被与树木',
+        '午后柔光落在 Pantai Merdeka（独立海滩）海面之上',
+        '以低角度拍摄 Pantai Merdeka（独立海滩）紧邻水边的沙带',
+        '日间从 Pantai Merdeka（独立海滩）望向外海的开阔视野',
+        'Pantai Merdeka（独立海滩）近旁的树荫遮蔽区域',
+        '连接停车邻近区与 Pantai Merdeka（独立海滩）岸线的步行道',
+        'Pantai Merdeka（独立海滩）海岸上方橙蓝交织的傍晚天色',
+        '潮水驱动的细浪触及 Pantai Merdeka（独立海滩）沙缘',
+        'Pantai Merdeka（独立海滩）毗邻的渔村沿海环境全景',
+        'Pantai Merdeka（独立海滩）界线上的林木在金色黄昏下',
+        'Pantai Merdeka（独立海滩）望向马六甲海峡（Selat Melaka）近岸海域，天气稳定'
+      ]
+    },
     faq: {
-      sectionNumber: '07 — 出发前先问',
+      sectionNumber: '08 — 出发前先问',
       eyebrow: '常见问题',
       title: '出发前的简明回答。',
       copy: '实用信息会随天气、节假日与运营方决策而变化。以下问题仅作准备参考，最终请以现场核实为准。',
@@ -536,8 +746,63 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       ]
     },
     footer: {
-      disclaimer: '本站为非官方访客指南，与任何主管机构、景点运营方或 Google 无关联。设施、天气、船班与商户信息可能变更；到访前请直接核实。',
-      links: { plan: '规划', directions: '交通', faq: '常见问题' }
+      disclaimer: '本站为非官方访客指南，与 Majlis Perbandaran Kota Kuala Muda（瓜拉慕达市议会，MPKM）、Lembaga Pelancongan Negeri Kedah（吉打州旅游局）、Tourism Malaysia（马来西亚旅游促进局）、任何景点运营方或 Google 均无关联。设施、天气、船班与商户信息可能变更；到访前请直接核实。',
+      links: { plan: '规划', directions: '交通', faq: '常见问题' },
+      legal: { privacy: '隐私政策', terms: '服务条款', cookies: 'Cookie 设置' },
+      copyright: '© 2026 Pantai Merdeka 访客指南（吉打瓜拉慕达） · 保留所有权利。',
+      imageRights: '本网站所展示的所有图片之产权与版权，均归各自原摄影者所有。'
+    },
+    legal: {
+      privacy: {
+        meta: { title: '隐私政策 · Pantai Merdeka 访客指南', description: '吉打州瓜拉慕达县 Pantai Merdeka 访客指南的官方隐私政策——涵盖收集数据种类、用途、第三方服务及依据《2010 年马来西亚个人数据保护法》与欧盟 GDPR 您所享有的权利。' },
+        pageTitle: '隐私政策',
+        updated: '最后更新：2026 年 8 月',
+        intro: 'Pantai Merdeka 访客指南由一项独立、非营利的吉打沿海访客资讯计划运营，始终致力于保护每位访客的隐私。本政策阐明本项目收集数据的最低范围、使用方式、涉及第三方，以及在《2010 年个人数据保护法》（马来西亚）与适用情形下欧盟《通用数据保护条例》（GDPR）之下，您所享有的各项权利。',
+        sections: [
+          { heading: '我们收集的信息', paragraphs: ['我们仅收集稳定交付内容与维持网站基本功能所必需的最低限度数据。在常规场景下，数据集可能包含以下类别：'], list: ['标准访问日志：IP 地址、浏览器类型、请求页面、来源 URL 与访问时间戳', '必要的技术 Cookie 与浏览器本地存储（localStorage），用于记录语言界面偏好或在您主动确认后的 Cookie 同意选择', '若您选择通过联系表单或邮件主动与我们沟通，则包括您自愿提交的任何信息'] },
+          { heading: '我们如何使用您的信息', paragraphs: ['收集到的数据仅专用于以下目的，本项目不构建任何第一方定向广告通道：'], list: ['基于聚合使用模式，改进内容、结构与整体可用性', '监测服务稳定性、定位异常并优化静态资源分发', '回应访客的请求、问询与反馈', '履行马来西亚境内网站发布者应承担的法定义务'] },
+          { heading: '第三方服务', paragraphs: ['本网站可能嵌入由第三方运营的内容或外部前置资源。每项第三方服务均各自维护独立的隐私政策，与本政策彼此分离。'], list: ['Google 地图（Google Maps）：用于 Pantai Merdeka 坐标与位置导航的嵌入地图；可能在 Google LLC 旗下域名设置第三方 Cookie', 'Cloudflare Pages 发布平台：用于性能与静态资源分发，访问日志按 Cloudflare 隐私政策处理', '默认未启用任何第一方行为分析套件（例如 Google Analytics）；如后续构建中引入，将先取得明确的 opt-in 同意'] },
+          { heading: '您的权利', paragraphs: ['根据您的司法辖区与适用法律，您可能有权主张以下权利：'], list: ['请求获取网站发布者持有的、与您相关的个人数据副本', '要求对不准确、不完整或不再必要的个人数据进行更正或删除', '对基于合法利益的处理提出反对，或在基于同意的处理中行使同意偏好', '向马来西亚通讯及数字部下属的个人数据保护专员办公室提出投诉；在 GDPR 适用的情形下，向具有管辖权的欧盟成员国监管机构投诉'] },
+          { heading: '本政策的修订', paragraphs: ['我们可能不时更新本隐私政策，以反映技术变更、监管新规或新增服务。顶部所示「最后更新」日期代表当前最新一次修订。'] }
+        ]
+      },
+      terms: {
+        meta: { title: '服务条款 · Pantai Merdeka 访客指南', description: '吉打瓜拉慕达 Pantai Merdeka 访客指南的服务使用条款——信息用途、准确性免责、知识产权归属与责任限制。' },
+        pageTitle: '服务条款',
+        updated: '最后更新：2026 年 8 月',
+        intro: '访问或使用 Pantai Merdeka 访客指南网站，即表示您同意受以下服务条款的约束。本网站由一项独立的非官方访客资讯计划发布，与 Majlis Perbandaran Kota Kuala Muda（瓜拉慕达市议会）、Lembaga Pelancongan Negeri Kedah（吉打州旅游局）、Tourism Malaysia（马来西亚旅游促进局）及任何商业景点运营方均无附属或合作关系。',
+        sections: [
+          { heading: '内容使用', paragraphs: ['本网站的全部文字、图示、标题与版式仅用于一般信息目的，不构成任何专业旅行建议、法律意见或财务层面的推荐。'] },
+          { heading: '信息的准确性', paragraphs: ['我们尽力发布关于 Pantai Merdeka 及周边吉打瓜拉慕达沿海区域的准确且合时宜的信息。但对于所载信息的完整性、准确性、可靠性或适用性，我们不作任何明示或默示的担保。'], list: ['运营时间、船班票价、停车收费、设施费用与本地商户名录，皆可在无事先通知的情形下随时变更', '强烈建议您在启程前通过地方主管部门、景点运营者或目标商户的官方渠道，当面核实关键信息'] },
+          { heading: '知识产权', paragraphs: ['专为 Pantai Merdeka 访客指南创作的网站设计、原始图形作品、信息架构与全部编辑文案，其著作权归项目出版方所有。', '本网站所展示的所有图片（包括 Pantai Merdeka 实地相册十三帧），其产权与版权均归各自原摄影者所有。在本网站之外的任何再使用，均需事先获得相应著作权持有人的书面授权。'], list: ['地图数据与嵌入地图组件，按现行 Google Maps 服务条款使用', '对第三方名称、商标及政府机构的任何引用，均为客观陈述，不构成背书或隶属主张'] },
+          { heading: '责任限制', paragraphs: ['本网站按「现状」及「现有」基础提供，不附带任何明示或默示的担保，包括但不限于适销性与特定用途适用性的默示担保。'], list: ['在马来西亚法律允许的最大限度内，网站出版方不对因使用本网站而直接或间接引起的任何直接、间接、偶然、特殊、后果性或惩罚性损害承担责任', '本责任限制包括但不限于：依据本网站内容做出的旅行决策、服务中断、无法访问、或在浏览期间对您接入设备造成的损害'] },
+          { heading: '外部链接', paragraphs: ['本网站可能包含指向第三方运营网站的链接。我们对任何被链接外部网站的内容、隐私政策或运营做法不具控制权，亦不承担任何责任。您对外部网站的访问，风险自行承担。'] },
+          { heading: '条款修订', paragraphs: ['本服务条款或可不时修订。修订版本发布后对网站的继续使用，视为您接受更新后的文本。'] }
+        ]
+      },
+      cookies: {
+        meta: { title: 'Cookie 设置 · Pantai Merdeka 访客指南', description: 'Pantai Merdeka 访客指南的 Cookie 分类说明——必要、偏好、分析、营销四类及其各自子项，以及偏好管理与默认状态。' },
+        pageTitle: 'Cookie 设置',
+        updated: '最后更新：2026 年 8 月',
+        intro: 'Pantai Merdeka 访客指南仅在维持核心功能所需的最低限度内，部署 Cookie 与浏览器 localStorage 等轻量存储技术。本页逐类说明可能存在的用途、对应子项，以及发布时的默认启用状态。',
+        categories: [
+          { name: '必要 Cookie', chip: '类别', status: '始终保持活跃', desc: '此类 Cookie 与本地存储项，对网站的基准运行至关重要，包括访问安全、Cookie 同意的留存记录，以及无需外部脚本即可跨页面保持的语言界面偏好。', items: [
+            { name: '同意记录', chip: '必要', status: '始终保持活跃', desc: '在您通过同意对话框（若提供）明确表达偏好后，记录该选择；绝不用于跨域追踪。' },
+            { name: '界面偏好', chip: '必要', status: '设置后活跃', desc: '记忆语言切换选项，以及未来版本可能引入的视觉模式开关，确保设置在页面跳转后保持一致。' }
+          ]},
+          { name: '分析型 Cookie', chip: '类别', status: '默认：未激活', desc: '由分析服务运营、用于匿名聚合访客行为数据的 Cookie。在当前公开发布版本中，并未安装任何第一方分析套件（如 Google Analytics）；如后续启用，将严格依赖 opt-in 明示同意。', items: [
+            { name: '站点性能分析', chip: '可选', status: '未激活', desc: '仅作为未来前端布局可能引入的占位名称；至本政策最后更新日止，未安装任何审计脚本或数据聚合管道。' }
+          ]},
+          { name: '偏好 Cookie', chip: '类别', status: '默认：未激活', desc: '用于记忆视觉或版式自定义项的偏好型 Cookie。当前，网站第一方脚本未发出任何额外的偏好 Cookie。', items: [
+            { name: '用户偏好', chip: '可选', status: '未激活', desc: '预留给未来视觉偏好功能使用，若届时引入的话。' }
+          ]},
+          { name: '营销 Cookie', chip: '类别', status: '默认：未激活', desc: '面向定向广告与营销活动衡量的追踪 Cookie。Pantai Merdeka 访客指南不投放营销 Cookie；若未来引入，将首先获得明确的 opt-in 同意。', items: [
+            { name: '个性化广告', chip: '营销', status: '未激活', desc: '占位说明当前站点不投放基于兴趣的个性化广告；在当前构建版本中保持未启用。' }
+          ]},
+          { name: '第三方 Cookie', chip: '类别', status: '出版方无法直接控制', desc: 'Google 地图嵌入组件与 Google Fonts 预连接资源，可能出于安全、会话认证或地图定制目的，在 Google LLC 域下设置第三方 Cookie。此类 Cookie 无法通过本站提供的第一方设置面板直接禁用。', items: [] }
+        ],
+        management: { title: '同意管理', paragraphs: ['您可随时通过修改浏览器层级的选项来调整 Cookie 设置。具体删除或阻止 Cookie 的操作步骤，请参阅您所用浏览器的官方文档。请注意，阻止必要 Cookie 可能影响部分网站功能。', '若在未来版本中提供交互式 Cookie 同意横幅，则将出现以下两种操作：'], actions: { save: '保存偏好设置', reject: '拒绝一切' } }
+      }
     },
     alt: {
       hero: 'Pantai Merdeka（独立海滩）沿岸与海面景观',
@@ -552,6 +817,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       food: '沿岸 · 食摊',
       routes: '路线 · 水陆两线',
       nearby: 'MERBOK · KUALA MUDA',
+      gallery: '实地相册 · 拾叁帧',
       faq: '以现场核实为准'
     },
     jsonLd: {

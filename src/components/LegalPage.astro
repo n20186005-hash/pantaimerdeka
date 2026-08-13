@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoMark from './LogoMark.astro';
+import type { LocaleKey } from '../i18n/config';
+import { locales } from '../i18n/config';
+import { getContent } from '../i18n/content';
+import type { LegalPageKind } from '../i18n/routing';
+import { localizePath, legalPagePath } from '../i18n/routing';
+interface Props {
+  locale: LocaleKey;
+  kind: LegalPageKind;
+}
+const { locale, kind } = Astro.props;
+const c = getContent(locale);
+const data =
+  kind === 'privacy' ? c.legal.privacy :
+  kind === 'terms'   ? c.legal.terms   :
+                        c.legal.cookies;
+const localeKeys = Object.keys(locales) as LocaleKey[];
+const legalLabel =
+  kind === 'privacy' ? c.footer.legal.privacy :
+  kind === 'terms'   ? c.footer.legal.terms   :
+                        c.footer.legal.cookies;
+const returnHomeLabel = locale === 'ms' ? 'Kembali ke laman utama' : locale === 'en' ? 'Back to home' : '返回首页';
+const documentStamp = locale === 'ms' ? 'DOKUMEN RASMI' : locale === 'en' ? 'OFFICIAL DOCUMENT' : '官方文件';
+const tableOfContentsLabel = locale === 'ms' ? 'Kandungan' : locale === 'en' ? 'Contents' : '目录';
+---
+<BaseLayout title={data.meta.title} description={data.meta.description} {locale} legal={kind}>
+  <header class="legal-header paper-grain">
+    <div class="legal-header-inner">
+      <a class="brand" href={localizePath('/', locale)} aria-label={c.meta.brandLabel}>
+        <LogoMark class="brand-mark" />
+        <span>Pantai<br />Merdeka</span>
+      </a>
+      <nav class="nav" aria-label={legalLabel}>
+        <span class="lang-switch" role="group" aria-label={c.localeSwitch.label}>
+          {localeKeys.map((k, i) => (
+            <>
+              <a class={`lang-link ${k === locale ? 'is-active' : ''}`} href={legalPagePath(k, kind)} hreflang={k === 'zh' ? 'zh-Hans' : k} aria-current={k === locale ? 'page' : undefined}>{k.toUpperCase()}</a>
+              {i < localeKeys.length - 1 ? <span class="lang-sep" aria-hidden="true">/</span> : null}
+            </>
+          ))}
+        </span>
+      </nav>
+    </div>
+    <div class="legal-hero">
+      <div class="legal-hero-inner">
+        <p class="eyebrow" style="color:var(--seafoam)">{legalLabel}</p>
+        <h1>{data.pageTitle}</h1>
+        <p class="legal-updated">{data.updated}</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="kandungan" class="legal-body">
+    <article class="legal-article paper-grain">
+      <aside class="legal-side" aria-label={tableOfContentsLabel}>
+        <div class="legal-stamp"><LogoMark /><span>{documentStamp}</span></div>
+        {kind !== 'cookies' ? (
+          <ol class="legal-toc">
+            {data.sections.map((s, i) => <li><a href={`#sec-${i + 1}`}>{i + 1}. {s.heading}</a></li>)}
+          </ol>
+        ) : (
+          <ol class="legal-toc">
+            {data.categories.map((cat, i) => <li><a href={`#sec-${i + 1}`}>{i + 1}. {cat.name}</a></li>)}
+            <li><a href="#sec-management">{data.categories.length + 1}. {data.management.title}</a></li>
+          </ol>
+        )}
+      </aside>
+
+      <div class="legal-content">
+        <p class="legal-intro">{data.intro}</p>
+
+        {kind !== 'cookies' ? data.sections.map((s, i) => (
+          <section id={`sec-${i + 1}`} class="legal-section">
+            <h2><span>{String(i + 1).padStart(2, '0')}</span>{s.heading}</h2>
+            {s.paragraphs.map(p => <p>{p}</p>)}
+            {s.list && s.list.length > 0 ? (
+              <ul>{s.list.map(x => <li>{x}</li>)}</ul>
+            ) : null}
+          </section>
+        )) : null}
+
+        {kind === 'cookies' ? data.categories.map((cat, i) => (
+          <section id={`sec-${i + 1}`} class="legal-section legal-category">
+            <h2><span>{String(i + 1).padStart(2, '0')}</span>{cat.name}</h2>
+            <div class="legal-category-head">
+              <span class="chip chip--dark">{cat.chip}</span>
+              <span class={`chip ${cat.status.includes('aktif') || cat.status.includes('active') || cat.status.includes('活跃') ? 'chip--active' : 'chip--muted'}`}>{cat.status}</span>
+            </div>
+            <p>{cat.desc}</p>
+            {cat.items && cat.items.length > 0 ? (
+              <ul class="cookie-item-list">
+                {cat.items.map(item => (
+                  <li>
+                    <div class="cookie-item-head">
+                      <strong>{item.name}</strong>
+                      <div class="cookie-item-chips">
+                        <span class="chip chip--dark">{item.chip}</span>
+                        <span class={`chip ${item.status.includes('aktif') || item.status.includes('active') || item.status.includes('活跃') ? 'chip--active' : 'chip--muted'}`}>{item.status}</span>
+                      </div>
+                    </div>
+                    <p>{item.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </section>
+        )) : null}
+
+        {kind === 'cookies' ? (
+          <section id="sec-management" class="legal-section">
+            <h2><span>{String(data.categories.length + 1).padStart(2, '0')}</span>{data.management.title}</h2>
+            {data.management.paragraphs.map(p => <p>{p}</p>)}
+            <div class="cookie-actions">
+              <button type="button" class="cookie-action cookie-action--save" disabled>{data.management.actions.save}</button>
+              <button type="button" class="cookie-action cookie-action--reject" disabled>{data.management.actions.reject}</button>
+              <span class="cookie-action-hint">
+                {locale === 'ms' ? 'Butang dinyahaktifkan dalam halaman tetapan statik; gunakan pilihan penyemak imbas anda.' :
+                 locale === 'en' ? 'Buttons are disabled on this static settings page; use your browser controls instead.' :
+                                   '本静态设置页的按钮为占位说明；请直接使用浏览器隐私设置管理 Cookie。'}
+              </span>
+            </div>
+          </section>
+        ) : null}
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer site-footer--legal">
+    <div class="footer-grid">
+      <a class="brand" href={localizePath('/', locale)}>
+        <LogoMark class="brand-mark" />
+        <span>Pantai<br />Merdeka</span>
+      </a>
+      <div class="legal-footer-block">
+        <p>{c.footer.disclaimer}</p>
+        <p><strong>{c.footer.copyright}</strong></p>
+        <p>{c.footer.imageRights}</p>
+      </div>
+      <div class="footer-links">
+        <a href={localizePath('/', locale)}>{returnHomeLabel}</a>
+        <a href={legalPagePath(locale, 'privacy')}>{c.footer.legal.privacy}</a>
+        <a href={legalPagePath(locale, 'terms')}>{c.footer.legal.terms}</a>
+        <a href={legalPagePath(locale, 'cookies')}>{c.footer.legal.cookies}</a>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

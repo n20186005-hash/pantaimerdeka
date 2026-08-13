@@ -1,20 +1,21 @@
 ---
-// Garisan Pasang Surut — multilingual base: dynamic lang tag, localized skip-link, hreflang alternates and per-locale OG image.
 import '../styles/global.css';
 import type { LocaleKey } from '../i18n/config';
 import { locales } from '../i18n/config';
 import { hreflangEntries, localizePath } from '../i18n/routing';
+import type { LegalPageKind } from '../i18n/routing';
 import { getContent } from '../i18n/content';
 interface Props {
   title: string;
   description: string;
   locale: LocaleKey;
+  legal?: LegalPageKind;
 }
-const { title, description, locale } = Astro.props;
+const { title, description, locale, legal } = Astro.props;
 const c = getContent(locale);
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 const shareImage = Astro.site ? new URL('/gallery/pantai-merdeka-2.jpg', Astro.site) : undefined;
-const hreflangs = hreflangEntries(Astro.url.pathname, Astro.site);
+const hreflangs = hreflangEntries(Astro.url.pathname, Astro.site, legal);
 const htmlLang = locale === 'zh' ? 'zh-Hans' : locale;
 ---
 <!doctype html>

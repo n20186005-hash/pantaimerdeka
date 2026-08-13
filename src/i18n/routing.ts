@@ -1,6 +1,18 @@
 import type { LocaleKey } from './config';
 import { locales, defaultLocale } from './config';
 
+export type LegalPageKind = 'privacy' | 'terms' | 'cookies';
+
+const PATH_MAP: Record<LocaleKey, Record<LegalPageKind, string>> = {
+  ms: { privacy: '/privasi/', terms: '/terma/', cookies: '/kuki/' },
+  en: { privacy: '/en/privacy/', terms: '/en/terms/', cookies: '/en/cookies/' },
+  zh: { privacy: '/zh/privacy/', terms: '/zh/terms/', cookies: '/zh/cookies/' }
+};
+
+export function legalPagePath(locale: LocaleKey, kind: LegalPageKind): string {
+  return PATH_MAP[locale][kind];
+}
+
 export function getLocaleFromPath(pathname: string): LocaleKey {
   const clean = pathname.split('?')[0].split('#')[0];
   if (clean.startsWith('/en')) return 'en';
@@ -18,16 +30,16 @@ export function localizePath(pathname: string, target: LocaleKey): string {
   return `${localized}${hash}`;
 }
 
-export function hreflangEntries(pathname: string, site?: URL) {
+export function hreflangEntries(pathname: string, site?: URL, legal?: LegalPageKind) {
   const entries: { code: string; href: string }[] = [];
   for (const key of Object.keys(locales) as LocaleKey[]) {
-    const href = localizePath(pathname, key);
+    const href = legal ? legalPagePath(key, legal) : localizePath(pathname, key);
     entries.push({
       code: key === 'zh' ? 'zh-Hans' : key,
       href: site ? new URL(href, site).toString() : href
     });
   }
-  const xDefault = localizePath(pathname, defaultLocale);
+  const xDefault = legal ? legalPagePath(defaultLocale, legal) : localizePath(pathname, defaultLocale);
   entries.push({
     code: 'x-default',
     href: site ? new URL(xDefault, site).toString() : xDefault
