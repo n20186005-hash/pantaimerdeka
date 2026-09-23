@@ -292,6 +292,12 @@ const localeKeys = Object.keys(locales) as LocaleKey[];
       </a>
       <div class="footer-text-block">
         <p>{c.footer.disclaimer}</p>
+        <p class="footer-sources">
+          <span class="footer-sources-label">{c.footer.sources.heading}:</span>
+          {c.footer.sources.items.map((item, i) => (
+            <>{i > 0 ? ', ' : ''}<a href={item.url} rel="noopener noreferrer" target="_blank">{item.text}</a></>
+          ))}
+        </p>
         <p class="footer-copyright"><strong>{c.footer.copyright}</strong></p>
         <p class="footer-imagerights">{c.footer.imageRights}</p>
       </div>

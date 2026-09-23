@@ -114,6 +114,7 @@ export interface ContentDictionary {
     disclaimer: string;
     links: { plan: string; directions: string; faq: string };
     legal: { privacy: string; terms: string; cookies: string };
+    sources: { heading: string; items: { text: string; url: string }[] };
     copyright: string;
     imageRights: string;
   };
@@ -309,6 +310,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       disclaimer: 'Tapak ini ialah panduan pelawat tidak rasmi dan tidak berafiliasi dengan Majlis Perbandaran Kota Kuala Muda, Lembaga Pelancongan Negeri Kedah, Tourism Malaysia, mana-mana pengendali tarikan atau Google. Maklumat kemudahan, cuaca, bot dan perniagaan boleh berubah; sahkan terus sebelum lawatan.',
       links: { plan: 'Rancang', directions: 'Arah', faq: 'FAQ' },
       legal: { privacy: 'Privasi', terms: 'Terma', cookies: 'Kuki' },
+      sources: { heading: 'Sumber rasmi', items: [{ text: 'Tourism Malaysia', url: 'https://www.malaysia.travel/' }] },
       copyright: '© 2026 Panduan Pelawat Pantai Merdeka · Hak cipta terpelihara.',
       imageRights: 'Hak cipta dan hak harta intelek semua gambar yang dipaparkan di laman ini kekal milik penggambar asal.'
     },
@@ -535,6 +537,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       disclaimer: 'This site is an unofficial visitor guide and is not affiliated with Majlis Perbandaran Kota Kuala Muda (MPKM), Lembaga Pelancongan Negeri Kedah, Tourism Malaysia, any attraction operator or Google. Facilities, weather, boats and business details can change; confirm directly before visiting.',
       links: { plan: 'Plan', directions: 'Directions', faq: 'FAQ' },
       legal: { privacy: 'Privacy', terms: 'Terms', cookies: 'Cookies' },
+      sources: { heading: 'Official source', items: [{ text: 'Tourism Malaysia', url: 'https://www.malaysia.travel/' }] },
       copyright: '© 2026 Pantai Merdeka Visitor Guide. All rights reserved.',
       imageRights: 'Proprietary rights and copyright in all photographs displayed on this site remain vested in their respective original photographers.'
     },
@@ -761,6 +764,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       disclaimer: '本站为非官方访客指南，与 Majlis Perbandaran Kota Kuala Muda（瓜拉慕达市议会，MPKM）、Lembaga Pelancongan Negeri Kedah（吉打州旅游局）、Tourism Malaysia（马来西亚旅游促进局）、任何景点运营方或 Google 均无关联。设施、天气、船班与商户信息可能变更；到访前请直接核实。',
       links: { plan: '规划', directions: '交通', faq: '常见问题' },
       legal: { privacy: '隐私政策', terms: '服务条款', cookies: 'Cookie 设置' },
+      sources: { heading: '官方来源', items: [{ text: 'Tourism Malaysia（马来西亚旅游促进局）', url: 'https://www.malaysia.travel/' }] },
       copyright: '© 2026 Pantai Merdeka 访客指南（吉打瓜拉慕达） · 保留所有权利。',
       imageRights: '本网站所展示的所有图片之产权与版权，均归各自原摄影者所有。'
     },
