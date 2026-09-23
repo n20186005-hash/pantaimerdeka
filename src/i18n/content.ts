@@ -169,8 +169,8 @@ export interface ContentDictionary {
 export const dictionary: Record<LocaleKey, ContentDictionary> = {
   ms: {
     meta: {
-      title: 'Pantai Merdeka · Panduan Pesisir Kuala Muda',
-      description: 'Panduan ringkas untuk menikmati Pantai Merdeka di Kota Kuala Muda, Kedah — pantai, arah, makan, kemudahan dan tempat berdekatan.',
+      title: 'Pantai Merdeka Kedah · Panduan Pantai, Bot Tanjung Dawai & Chalet',
+      description: 'Panduan Pantai Merdeka, Kedah: arah ke pantai, bot penambang ke Tanjung Dawai, chalet & homestay berdekatan, makanan laut, serta tempat menarik seperti Pulau Sayak.',
       skipToContent: 'Lompat ke kandungan',
       brandLabel: 'Pantai Merdeka, kembali ke permulaan',
       shareImageAlt: 'Pemandangan pantai dan laut di Pantai Merdeka'
@@ -264,7 +264,8 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       cards: [
         { span: 'Merentasi sungai', title: 'Tanjung Dawai', copy: 'Pekan pesisir yang dihubungkan oleh bot merentasi Sungai Merbok, tertakluk kepada operasi semasa.' },
         { span: 'Jejak alam', title: 'Muara Merbok', copy: 'Kawasan sungai dan pesisir yang mengingatkan bahawa Kuala Muda dibentuk oleh air, bakau dan kampung nelayan.' },
-        { span: 'Pemandangan jauh', title: 'Gunung Jerai', copy: 'Gunung ikonik Kedah yang kadangkala membingkai pandangan dari pesisir ketika cuaca mengizinkan.' }
+        { span: 'Pemandangan jauh', title: 'Gunung Jerai', copy: 'Gunung ikonik Kedah yang kadangkala membingkai pandangan dari pesisir ketika cuaca mengizinkan.' },
+        { span: 'Pulau berdekatan', title: 'Pulau Sayak', copy: 'Pulau kecil berhampiran Tanjung Dawai yang dikenali dengan hidangan makanan laut seperti mee udang; semak waktu dan ketersediaan terus di lokasi.' }
       ]
     },
     gallery: {
@@ -298,7 +299,10 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { q: 'Bilakah waktu yang baik untuk datang?', a: 'Bagi suasana yang lebih selesa, pilih lewat petang apabila panas berkurang dan angin laut terasa lebih baik. Keadaan cuaca serta pasang surut berubah; utamakan nasihat keselamatan di lokasi.' },
         { q: 'Bolehkah saya menaiki bot ke Tanjung Dawai?', a: 'Terdapat perkhidmatan bot yang menghubungkan kawasan ini dengan Tanjung Dawai merentasi Sungai Merbok. Jadual, tambang, keadaan cuaca dan operasi adalah tertakluk kepada pengendali setempat.' },
         { q: 'Ada tempat makan dan tandas?', a: 'Gerai makanan dan tandas awam dilaporkan berada berhampiran pantai. Pilihan, waktu operasi dan caj tandas boleh berubah mengikut hari serta pengendali.' },
-        { q: 'Adakah sesuai untuk berkhemah semalaman?', a: 'Rancang Pantai Merdeka sebagai lawatan sehari kecuali anda telah mengesahkan penginapan atau tapak perkhemahan yang sah secara berasingan.' }
+        { q: 'Adakah sesuai untuk berkhemah semalaman?', a: 'Rancang Pantai Merdeka sebagai lawatan sehari kecuali anda telah mengesahkan penginapan atau tapak perkhemahan yang sah secara berasingan.' },
+        { q: 'Berapa tambang dan jadual bot ke Tanjung Dawai?', a: 'Bot penambang merentasi Sungai Merbok ke Tanjung Dawai dikendalikan oleh pengusaha tempatan. Tambang, jadual dan operasi boleh berubah mengikut musim dan cuaca; semak terus di jeti sebelum menyeberang.' },
+        { q: 'Ada chalet atau homestay berdekatan?', a: 'Kawasan sekitar Pantai Merdeka dan Tanjung Dawai menawarkan pilihan chalet, homestay dan penginapan ringkas. Kadar dan ketersediaan berbeza mengikut musim; sahkan terus dengan pengusaha pilihan anda.' },
+        { q: 'Apakah menarik di Pulau Sayak?', a: 'Pulau Sayak berhampiran Tanjung Dawai terkenal dengan hidangan makanan laut seperti mee udang. Waktu, caj dan pilihan boleh berubah — semak terus dengan pengusaha tempatan sebelum melawat.' }
       ]
     },
     footer: {
@@ -391,8 +395,8 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
   },
   en: {
     meta: {
-      title: 'Pantai Merdeka · A Coastal Field Guide to Kuala Muda',
-      description: 'A concise visitor guide to Pantai Merdeka in Kota Kuala Muda, Kedah — shore access, directions, nearby eating, facilities and adjacent coastal stops.',
+      title: 'Pantai Merdeka Kedah · Beach Guide, Tanjung Dawai Ferry & Chalets',
+      description: 'A visitor guide to Pantai Merdeka, Kedah — directions to the shore, the ferry to Tanjung Dawai, nearby chalets & homestays, seafood, and nearby stops like Pulau Sayak.',
       skipToContent: 'Skip to content',
       brandLabel: 'Pantai Merdeka, return to the top',
       shareImageAlt: 'Coastal and seascape view at Pantai Merdeka'
@@ -486,7 +490,8 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       cards: [
         { span: 'Across the river', title: 'Tanjung Dawai', copy: 'A coastal town linked by small boats across the Sungai Merbok estuary, subject to current operating schedules.' },
         { span: 'Watershed walk', title: 'Muara Merbok', copy: 'The river and coastal hinterland that reminds visitors Kuala Muda was shaped by water, mangroves and fishing villages.' },
-        { span: 'Distant view', title: 'Gunung Jerai', copy: 'The iconic Kedah peak that occasionally frames the coastal horizon when the weather permits.' }
+        { span: 'Distant view', title: 'Gunung Jerai', copy: 'The iconic Kedah peak that occasionally frames the coastal horizon when the weather permits.' },
+        { span: 'Nearby island', title: 'Pulau Sayak', copy: 'A small island near Tanjung Dawai known for seafood dishes such as prawn noodle (mee udang); confirm hours and availability on site.' }
       ]
     },
     gallery: {
@@ -520,7 +525,10 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { q: 'When is a good time to come?', a: 'For a more comfortable atmosphere, choose late afternoon when the heat eases and the sea breeze is usually more pleasant. Weather and tides change; prioritise on-site safety advice.' },
         { q: 'Can I take a boat to Tanjung Dawai?', a: 'Boat services connect the area with Tanjung Dawai across the Sungai Merbok estuary. Schedules, fares, weather and operations are at the discretion of local operators.' },
         { q: 'Are there places to eat and toilets?', a: 'Food stalls and public toilets are reported near the shore. Selection, opening hours and toilet charges may vary by day and by operator.' },
-        { q: 'Is this a suitable place for overnight camping?', a: 'Plan Pantai Merdeka as a day visit unless you have separately confirmed accommodation or a registered camping site in advance.' }
+        { q: 'Is this a suitable place for overnight camping?', a: 'Plan Pantai Merdeka as a day visit unless you have separately confirmed accommodation or a registered camping site in advance.' },
+        { q: 'What are the ferry fare and schedule to Tanjung Dawai?', a: 'The ferry across the Sungai Merbok estuary to Tanjung Dawai is run by local operators. Fares, schedules and operations can shift with season and weather; confirm directly at the jetty before crossing.' },
+        { q: 'Are there chalets or homestays nearby?', a: 'Around Pantai Merdeka and Tanjung Dawai you will find chalets, homestays and simple accommodations. Rates and availability vary by season; verify directly with your chosen operator.' },
+        { q: 'What is worth seeing at Pulau Sayak?', a: 'Pulau Sayak, near Tanjung Dawai, is known for seafood dishes such as prawn noodle (mee udang). Hours, charges and choices can change — check directly with local operators before visiting.' }
       ]
     },
     footer: {
@@ -613,8 +621,8 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
   },
   zh: {
     meta: {
-      title: 'Pantai Merdeka · 吉打居林海岸实地指南',
-      description: '一份关于吉打州瓜拉慕达县 Kota Kuala Muda 境内 Pantai Merdeka（独立海滩）的简明访客指南，涵盖海岸进入、交通方向、邻近饮食、公共设施及周边沿海站点。',
+      title: 'Pantai Merdeka（独立海滩）吉打 · 海岸指南、Tanjung Dawai 渡轮与住宿',
+      description: '吉打州 Pantai Merdeka（独立海滩）访客指南：交通方向、前往 Tanjung Dawai 的渡轮、周边 chalet 与 homestay、海鲜，以及 Pulau Sayak 等邻近景点。',
       skipToContent: '跳到正文',
       brandLabel: 'Pantai Merdeka，返回页首',
       shareImageAlt: 'Pantai Merdeka（独立海滩）沿岸与海面景观'
@@ -708,7 +716,8 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       cards: [
         { span: '跨河而行', title: 'Tanjung Dawai', copy: '以小艇横越 Sungai Merbok（莫博河）河口相连的沿海小镇，班次以现行运营时刻为准。' },
         { span: '水文足迹', title: 'Muara Merbok（莫博河口）', copy: '这片河流与沿海腹地提醒访客：Kuala Muda 的地貌由水流、红树林与渔村共同塑造。' },
-        { span: '远方轮廓', title: 'Gunung Jerai（杰来山）', copy: '吉打州标志性山峰，在天气允许时，偶可从海岸一带望见其轮廓。' }
+        { span: '远方轮廓', title: 'Gunung Jerai（杰来山）', copy: '吉打州标志性山峰，在天气允许时，偶可从海岸一带望见其轮廓。' },
+        { span: '邻近小岛', title: 'Pulau Sayak', copy: '邻近 Tanjung Dawai 的小岛，以虾面（mee udang）等海鲜料理闻名；请于现场直接核实营业时间与供应情况。' }
       ]
     },
     gallery: {
@@ -742,7 +751,10 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { q: '什么时段到访较为合适？', a: '若追求更舒适的体验，可选择下午晚些时候，此时暑热缓解，海风通常更宜人。天气与潮汐均会变化；请优先遵循现场安全指引。' },
         { q: '是否可以乘船前往 Tanjung Dawai？', a: '目前有船班服务横越 Sungai Merbok（莫博河）河口，连接本区域与 Tanjung Dawai。班次、票价、天气条件与运营安排，均以当地运营方为准。' },
         { q: '附近是否有餐饮与洗手间？', a: '据报海滩近处设有饮食摊位与公共洗手间。可供选择的品类、开放时间与洗手间收费，会因日期与运营方而异。' },
-        { q: '这里适合通宵露营吗？', a: '除非您已另行确认住宿或已登记的露营场地，否则建议将 Pantai Merdeka 作为日间行程。' }
+        { q: '这里适合通宵露营吗？', a: '除非您已另行确认住宿或已登记的露营场地，否则建议将 Pantai Merdeka 作为日间行程。' },
+        { q: '前往 Tanjung Dawai 的渡轮票价与班次如何？', a: '横越 Sungai Merbok（莫博河）河口、连接 Tanjung Dawai 的渡轮由当地运营方经营。票价、班次与运营安排会随季节与天气变动；过江前请直接向码头核实。' },
+        { q: '附近是否有 chalet 或 homestay？', a: 'Pantai Merdeka 与 Tanjung Dawai 周边提供 chalet、homestay 及简易住宿选择。价格与可订状态随季节而异；请直接向意向商户确认。' },
+        { q: 'Pulau Sayak 有什么可看？', a: '邻近 Tanjung Dawai 的 Pulau Sayak 以虾面（mee udang）等海鲜料理闻名。营业时间、收费与选择可能变动；到访前请直接向当地运营方核实。' }
       ]
     },
     footer: {

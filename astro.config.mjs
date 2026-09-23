@@ -4,7 +4,9 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 const configuredSite = process.env.PUBLIC_SITE_URL?.trim();
-const site = configuredSite ? new URL(configuredSite) : undefined;
+// Fallback keeps canonical/hreflang/sitemap/og:url emitting even when the build
+// env omits PUBLIC_SITE_URL, so http:// variants are never indexed as duplicates.
+const site = configuredSite ? new URL(configuredSite) : new URL('https://pantaimerdeka.com/');
 
 export default defineConfig({
   site,

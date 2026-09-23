@@ -11,16 +11,19 @@ const { locale } = Astro.props;
 const c = getContent(locale);
 const currentPath = Astro.url.pathname;
 const canonical = Astro.site ? new URL(currentPath, Astro.site) : undefined;
+const shareImage = Astro.site ? new URL('/gallery/pantai-merdeka-2.jpg', Astro.site) : undefined;
 const placeData = {
   '@context': 'https://schema.org',
   '@type': ['TouristAttraction', 'LocalBusiness'],
   name: c.jsonLd.placeName,
   ...(canonical ? { url: canonical.toString(), '@id': `${canonical.toString()}#pantai-merdeka` } : {}),
   description: c.jsonLd.placeDescription,
+  isAccessibleForFree: true,
+  ...(shareImage ? { image: shareImage.toString() } : {}),
   address: { '@type': 'PostalAddress', streetAddress: c.jsonLd.streetAddress, addressLocality: c.jsonLd.addressLocality, postalCode: c.jsonLd.postalCode, addressRegion: c.jsonLd.addressRegion, addressCountry: c.jsonLd.addressCountry },
   geo: { '@type': 'GeoCoordinates', latitude: 5.666111, longitude: 100.3675 },
   openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '00:00', closes: '23:59' }],
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.1', reviewCount: '5238', bestRating: '5', worstRating: '1' }
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.2', reviewCount: '6649', bestRating: '5', worstRating: '1' }
 };
 const faqData = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faq.items.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
 const localeKeys = Object.keys(locales) as LocaleKey[];
