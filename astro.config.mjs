@@ -10,6 +10,6 @@ const site = (configuredSite ? new URL(configuredSite) : new URL('https://pantai
 
 export default defineConfig({
   site,
-  integrations: site ? [sitemap()] : [],
+  integrations: site ? [sitemap({ filter: (page) => !page.endsWith('/404/') })] : [],
   vite: { plugins: [tailwindcss()] }
 });

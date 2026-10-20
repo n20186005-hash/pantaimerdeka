@@ -4,7 +4,6 @@ import LogoMark from '../components/LogoMark.astro';
 import type { LocaleKey } from '../i18n/config';
 import { locales } from '../i18n/config';
 import { localizePath, legalPagePath } from '../i18n/routing';
-import type { LegalPageKind } from '../i18n/routing';
 import { getContent } from '../i18n/content';
 interface Props { locale: LocaleKey; }
 const { locale } = Astro.props;
@@ -14,18 +13,21 @@ const canonical = Astro.site ? new URL(currentPath, Astro.site) : undefined;
 const shareImage = Astro.site ? new URL('/gallery/pantai-merdeka-2.jpg', Astro.site) : undefined;
 const placeData = {
   '@context': 'https://schema.org',
-  '@type': ['TouristAttraction', 'LocalBusiness'],
+  '@type': 'TouristAttraction',
   name: c.jsonLd.placeName,
   ...(canonical ? { url: canonical.toString(), '@id': `${canonical.toString()}#pantai-merdeka` } : {}),
   description: c.jsonLd.placeDescription,
-  isAccessibleForFree: true,
   ...(shareImage ? { image: shareImage.toString() } : {}),
   address: { '@type': 'PostalAddress', streetAddress: c.jsonLd.streetAddress, addressLocality: c.jsonLd.addressLocality, postalCode: c.jsonLd.postalCode, addressRegion: c.jsonLd.addressRegion, addressCountry: c.jsonLd.addressCountry },
-  geo: { '@type': 'GeoCoordinates', latitude: 5.666111, longitude: 100.3675 },
-  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '00:00', closes: '23:59' }],
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.2', reviewCount: '6649', bestRating: '5', worstRating: '1' }
+  geo: { '@type': 'GeoCoordinates', latitude: 5.666757, longitude: 100.3674825 },
+
 };
 const faqData = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faq.items.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+const snapshot = {
+  ms: 'Disemak 19 Oktober 2026: Google Maps menyenaraikan 4.2/5 daripada 6,669 ulasan dan akses 24 jam. Ini ialah penilaian pihak ketiga, bukan ulasan laman ini. Waktu tersebut tidak menjamin akses malam yang selamat atau semua kemudahan dibuka; semak keadaan tempatan dan operasi bot sebelum bertolak.',
+  en: 'Checked 19 October 2026: Google Maps lists 4.2/5 from 6,669 reviews and 24-hour access. This is a third-party rating, not reviews collected by this site. Listed hours do not guarantee safe night access or that all facilities are open; check local conditions and boat operations before travelling.',
+  zh: '2026年10月19日核对：Google 地图显示4.2/5分、6,669条评论及24小时开放。这是第三方评分，并非本站收集的评价。地图时段不保证夜间安全或所有设施开放；出发前请确认当地情况与船只运营。'
+};
 const localeKeys = Object.keys(locales) as LocaleKey[];
 ---
 <BaseLayout title={c.meta.title} description={c.meta.description} {locale}>
@@ -95,6 +97,7 @@ const localeKeys = Object.keys(locales) as LocaleKey[];
           <p class="eyebrow">{c.intro.eyebrow}</p>
           <h2 class="section-title" id="tentang-title">{c.intro.title}</h2>
           <p class="section-copy">{c.intro.copy}</p>
+          <p class="section-copy">{snapshot[locale]} <a href="https://maps.app.goo.gl/6ZrEEsM9J6c19N2w5" target="_blank" rel="noopener noreferrer">Google Maps</a></p>
           <dl class="facts">
             <div class="fact"><dt>{c.intro.facts.location.label}</dt><dd>{c.intro.facts.location.value}</dd></div>
             <div class="fact"><dt>{c.intro.facts.entry.label}</dt><dd>{c.intro.facts.entry.value}</dd></div>
