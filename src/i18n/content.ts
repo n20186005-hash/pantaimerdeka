@@ -170,8 +170,8 @@ export interface ContentDictionary {
 export const dictionary: Record<LocaleKey, ContentDictionary> = {
   ms: {
     meta: {
-      title: 'Pantai Merdeka Kedah · Panduan Pantai, Bot Tanjung Dawai & Chalet',
-      description: 'Panduan Pantai Merdeka, Kedah: arah ke pantai, bot penambang ke Tanjung Dawai, chalet & homestay berdekatan, makanan laut, serta tempat menarik seperti Pulau Sayak.',
+      title: 'Pantai Merdeka, Kota Kuala Muda · Arah & Panduan Kedah',
+      description: 'Panduan Pantai Merdeka di Kota Kuala Muda, Kedah, untuk lawatan dari Sungai Petani: arah, berjalan di pesisir, makanan, pemandangan Gunung Jerai dan semakan bot Tanjung Dawai.',
       skipToContent: 'Lompat ke kandungan',
       brandLabel: 'Pantai Merdeka, kembali ke permulaan',
       shareImageAlt: 'Pemandangan pantai dan laut di Pantai Merdeka'
@@ -180,14 +180,14 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
     localeSwitch: { label: 'Bahasa' },
     hero: {
       region: 'Kota Kuala Muda · Kedah',
-      title: 'Laut, angin & petang yang panjang.',
+      title: 'Pantai Merdeka, Kota Kuala Muda, Kedah.',
       lede: 'Pantai Merdeka ialah tempat untuk tiba perlahan, membentang tikar, makan sesuatu yang hangat dan menunggu warna langit berubah.',
       primaryCta: 'Cari arah',
       secondaryCta: 'Rancang lawatan',
       coordsLabel: 'Koordinat',
-      coordsValue: '5.666111° U\n100.367500° T',
+      coordsValue: '5.666757° U\n100.3674825° T',
       accessLabel: 'Akses kawasan',
-      accessValue: 'Setiap hari\nSepanjang hari',
+      accessValue: 'Semak keadaan\nsebelum lawatan',
       scrollNote: 'Ikut garisan air'
     },
     intro: {
@@ -197,7 +197,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       copy: 'Di pesisir Kuala Muda, Pantai Merdeka lebih dekat kepada ritual keluarga hujung minggu daripada destinasi yang dibina-bina. Ruangnya terbuka, suasananya kampung dan petangnya paling sesuai dinikmati tanpa tergesa-gesa.',
       facts: {
         location: { label: 'Lokasi', value: '08500 Kota Kuala Muda, Kedah' },
-        entry: { label: 'Masuk', value: 'Kawasan pantai lazimnya percuma' },
+        entry: { label: 'Masuk', value: 'Semak caj semasa di lokasi' },
         suitable: { label: 'Sesuai untuk', value: 'Berjalan, berkelah & melihat senja' },
         note: { label: 'Nota', value: 'Kemudahan beroperasi mengikut pengendali' }
       },
@@ -211,7 +211,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       items: [
         { label: 'Masa terbaik', value: 'Lewat petang hingga senja untuk cahaya yang lebih lembut dan angin laut yang lazimnya lebih selesa.' },
         { label: 'Tempoh tinggal', value: 'Rancang sekitar 2–4 jam untuk bersiar, berkelah, makan dan melihat langit berubah.' },
-        { label: 'Bayaran', value: 'Akses pantai dilaporkan percuma; bawa wang kecil untuk tandas, makanan, aktiviti atau bot jika ada.' },
+        { label: 'Bayaran', value: 'Semak caj masuk, tempat letak kereta, kemudahan dan bot terus dengan pengusaha; tiada kadar semasa yang disahkan di sini.' },
         { label: 'Parkir', value: 'Kawasan letak kereta berhampiran pantai biasanya tersedia. Hujung minggu dan cuti boleh lebih sibuk; tiba awal jika perlu.' }
       ],
       leaveNoTrace: 'Jaga pantai bersama-sama. Bawa pulang sampah, gunakan tong yang ada dan jangan memberi makan hidupan liar yang menghampiri kawasan pelawat.',
@@ -229,7 +229,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { title: 'Berjalan di tepi air', copy: 'Pilih kasut yang sesuai untuk permukaan pesisir dan nikmati garis air mengikut keadaan pasang surut.' },
         { title: 'Hampar tikar', copy: 'Ruang pantai sesuai untuk keluarga yang mahu berehat, makan ringan dan membiarkan anak-anak bermain di kawasan yang dipantau.' },
         { title: 'Tunggu senja', copy: 'Pemandangan terbuka ke laut menjadikan lewat petang alasan yang cukup untuk tidak pulang terlalu awal.' },
-        { title: 'Fikir sebelum berenang', copy: 'Keadaan air berubah-ubah. Pilih aktiviti air hanya apabila cuaca, arus dan arahan keselamatan setempat mengizinkan.' }
+        { title: 'Fikir sebelum berenang', copy: 'Panduan ini tidak mengesahkan keselamatan berenang. Patuhi papan tanda, amaran cuaca dan nasihat pihak berkuasa tempatan; jangan anggap akses pantai sebagai kebenaran berenang.' }
       ]
     },
     food: {
@@ -266,7 +266,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { span: 'Merentasi sungai', title: 'Tanjung Dawai', copy: 'Pekan pesisir yang dihubungkan oleh bot merentasi Sungai Merbok, tertakluk kepada operasi semasa.' },
         { span: 'Jejak alam', title: 'Muara Merbok', copy: 'Kawasan sungai dan pesisir yang mengingatkan bahawa Kuala Muda dibentuk oleh air, bakau dan kampung nelayan.' },
         { span: 'Pemandangan jauh', title: 'Gunung Jerai', copy: 'Gunung ikonik Kedah yang kadangkala membingkai pandangan dari pesisir ketika cuaca mengizinkan.' },
-        { span: 'Pulau berdekatan', title: 'Pulau Sayak', copy: 'Pulau kecil berhampiran Tanjung Dawai yang dikenali dengan hidangan makanan laut seperti mee udang; semak waktu dan ketersediaan terus di lokasi.' }
+        { span: 'Pesisir berdekatan', title: 'Pulau Sayak', copy: 'Kawasan pesisir Pulau Sayak yang dikenali dengan hidangan makanan laut seperti mee udang; semak waktu dan ketersediaan terus di lokasi.' }
       ]
     },
     gallery: {
@@ -296,21 +296,21 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       title: 'Jawapan ringkas sebelum bertolak.',
       copy: 'Maklumat praktikal berubah mengikut cuaca, cuti dan pengendali. Gunakan soalan ini sebagai persediaan, kemudian semak keadaan di lokasi.',
       items: [
-        { q: 'Adakah masuk ke Pantai Merdeka dikenakan bayaran?', a: 'Akses ke kawasan pantai lazimnya percuma. Aktiviti, tandas, bot dan perkhidmatan gerai adalah berasingan, jadi semak terus di lokasi sebelum membuat keputusan.' },
+        { q: 'Adakah masuk ke Pantai Merdeka dikenakan bayaran?', a: 'Tiada kadar masuk semasa yang disahkan dalam panduan ini. Semak caj masuk, tempat letak kereta, tandas, aktiviti dan bot terus dengan pengusaha sebelum membuat keputusan.' },
         { q: 'Bilakah waktu yang baik untuk datang?', a: 'Bagi suasana yang lebih selesa, pilih lewat petang apabila panas berkurang dan angin laut terasa lebih baik. Keadaan cuaca serta pasang surut berubah; utamakan nasihat keselamatan di lokasi.' },
-        { q: 'Bolehkah saya menaiki bot ke Tanjung Dawai?', a: 'Terdapat perkhidmatan bot yang menghubungkan kawasan ini dengan Tanjung Dawai merentasi Sungai Merbok. Jadual, tambang, keadaan cuaca dan operasi adalah tertakluk kepada pengendali setempat.' },
+        { q: 'Bolehkah saya menaiki bot ke Tanjung Dawai?', a: 'Kedah Tourism menerangkan hubungan bot ke Tanjung Dawai merentasi Sungai Merbok; panduan ini tidak mengesahkan perkhidmatan pada hari lawatan. Jadual, tambang, keadaan cuaca dan operasi adalah tertakluk kepada pengendali setempat.' },
         { q: 'Ada tempat makan dan tandas?', a: 'Gerai makanan dan tandas awam dilaporkan berada berhampiran pantai. Pilihan, waktu operasi dan caj tandas boleh berubah mengikut hari serta pengendali.' },
         { q: 'Adakah sesuai untuk berkhemah semalaman?', a: 'Rancang Pantai Merdeka sebagai lawatan sehari kecuali anda telah mengesahkan penginapan atau tapak perkhemahan yang sah secara berasingan.' },
         { q: 'Berapa tambang dan jadual bot ke Tanjung Dawai?', a: 'Bot penambang merentasi Sungai Merbok ke Tanjung Dawai dikendalikan oleh pengusaha tempatan. Tambang, jadual dan operasi boleh berubah mengikut musim dan cuaca; semak terus di jeti sebelum menyeberang.' },
         { q: 'Ada chalet atau homestay berdekatan?', a: 'Kawasan sekitar Pantai Merdeka dan Tanjung Dawai menawarkan pilihan chalet, homestay dan penginapan ringkas. Kadar dan ketersediaan berbeza mengikut musim; sahkan terus dengan pengusaha pilihan anda.' },
-        { q: 'Apakah menarik di Pulau Sayak?', a: 'Pulau Sayak berhampiran Tanjung Dawai terkenal dengan hidangan makanan laut seperti mee udang. Waktu, caj dan pilihan boleh berubah — semak terus dengan pengusaha tempatan sebelum melawat.' }
+        { q: 'Apakah menarik di Pulau Sayak?', a: 'Kawasan pesisir Pulau Sayak terkenal dengan hidangan makanan laut seperti mee udang. Waktu, caj dan pilihan boleh berubah — semak terus dengan pengusaha tempatan sebelum melawat.' }
       ]
     },
     footer: {
       disclaimer: 'Tapak ini ialah panduan pelawat tidak rasmi dan tidak berafiliasi dengan Majlis Perbandaran Kota Kuala Muda, Lembaga Pelancongan Negeri Kedah, Tourism Malaysia, mana-mana pengendali tarikan atau Google. Maklumat kemudahan, cuaca, bot dan perniagaan boleh berubah; sahkan terus sebelum lawatan.',
       links: { plan: 'Rancang', directions: 'Arah', faq: 'FAQ' },
       legal: { privacy: 'Privasi', terms: 'Terma', cookies: 'Kuki' },
-      sources: { heading: 'Sumber rasmi', items: [{ text: 'Tourism Malaysia', url: 'https://www.malaysia.travel/' }] },
+      sources: { heading: 'Sumber', items: [{ text: 'Kedah Tourism — Merdeka Beach', url: 'https://kedahtourism.gov.my/wp-content/uploads/2024/09/Merged-20240803-025117_compressed-1.pdf' }] },
       copyright: '© 2026 Panduan Pelawat Pantai Merdeka · Hak cipta terpelihara.',
       imageRights: 'Hak cipta dan hak harta intelek semua gambar yang dipaparkan di laman ini kekal milik penggambar asal.'
     },
@@ -321,9 +321,9 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         updated: 'Masa kemas kini terakhir: Ogos 2026',
         intro: 'Panduan Pelawat Pantai Merdeka yang diselenggara di bawah inisiatif panduan pelawat tidak rasmi untuk pesisir Kuala Muda, Kedah komited untuk melindungi privasi pelawat. Dasar ini menerangkan jenis data minimum yang dikumpul, cara ia digunakan, pihak ketiga yang terlibat, serta hak anda di bawah Akta Perlindungan Data Peribadi 2010 (Malaysia) dan, jika berkenaan, Peraturan Perlindungan Data Am (GDPR) Kesatuan Eropah.',
         sections: [
-          { heading: 'Maklumat yang kami kumpul', paragraphs: ['Kami hanya mengumpul data minimum yang perlu untuk penyampaian kandungan dan fungsi laman yang stabil. Dalam keadaan biasa, set data ini mungkin terdiri daripada perkara berikut:'], list: ['Data log pelayaran standard: alamat IP, jenis penyemak imbas, halaman yang diminta, rujukan keluar dan masa lawatan', 'Kuki teknikal yang perlu dan storan tempatan (localStorage) untuk mengingati keutamaan bahasa atau tetapan persetujuan kuki jika dinyatakan', 'Maklumat yang diberikan secara sukarela melalui borang hubungan atau emel, sekiranya anda memilih untuk menghubungi kami'] },
+          { heading: 'Maklumat yang kami kumpul', paragraphs: ['Kami hanya mengumpul data minimum yang perlu untuk penyampaian kandungan dan fungsi laman yang stabil. Dalam keadaan biasa, set data ini mungkin terdiri daripada perkara berikut:'], list: ['Data log pelayaran standard: alamat IP, jenis penyemak imbas, halaman yang diminta, rujukan keluar dan masa lawatan', 'Laman statik ini tidak menetapkan kuki pihak pertama atau localStorage; bahasa dipilih melalui pautan halaman', 'Tiada borang hubungan atau medan penghantaran data peribadi tersedia pada laman ini'] },
           { heading: 'Cara maklumat digunakan', paragraphs: ['Data yang dikumpul digunakan secara eksklusif untuk tujuan berikut, tanpa penyeragaman iklan bertarget pada pihak pertama:'], list: ['Memperbaiki kandungan, struktur dan kebolehgunaan laman berdasarkan pola penggunaan agregat', 'Memantau kestabilan pelayan, mengenal pasti ralat dan mengoptimumkan penghantaran sumber statik', 'Menyah balik permintaan, soalan atau maklum balas pelawat', 'Mematuhi kewajipan undang-undang yang dikenakan kepada penerbit laman di Malaysia'] },
-          { heading: 'Perkhidmatan pihak ketiga', paragraphs: ['Laman ini boleh memuatkan kandungan terbenam atau prasyarat luar yang dikendalikan oleh pihak ketiga. Setiap perkhidmatan ini mempunyai dasar privasi sendiri yang berasingan dan bebas daripada dasar ini.'], list: ['Peta Google (Google Maps): benam peta untuk arah lokasi Pantai Merdeka; boleh menetapkan kuki pihak ketiga bawah domain Google LLC', 'Prestasi dan penghantaran sumber pada platform penerbitan Cloudflare Pages; log capaian terurus mengikut dasar privasi Cloudflare', 'Tiada analitik tingkah laku pihak pertama (contoh: Google Analytics) diaktifkan secara lalai; sekiranya diaktifkan kemudian, persetujuan eksplisit akan diminta terlebih dahulu'] },
+          { heading: 'Perkhidmatan pihak ketiga', paragraphs: ['Laman ini boleh memuatkan kandungan terbenam atau prasyarat luar yang dikendalikan oleh pihak ketiga. Setiap perkhidmatan ini mempunyai dasar privasi sendiri yang berasingan dan bebas daripada dasar ini.'], list: ['Peta Google (Google Maps): benam peta untuk arah lokasi Pantai Merdeka; boleh menetapkan kuki pihak ketiga bawah domain Google LLC', 'Prestasi dan penghantaran sumber pada platform penerbitan Cloudflare; log capaian terurus mengikut dasar privasi Cloudflare', 'Tiada analitik tingkah laku pihak pertama (contoh: Google Analytics) diaktifkan secara lalai; sekiranya diaktifkan kemudian, persetujuan eksplisit akan diminta terlebih dahulu'] },
           { heading: 'Hak anda', paragraphs: ['Bergantung kepada tempat kediaman dan undang-undang yang terpakai, anda mungkin berhak terhadap perkara berikut:'], list: ['Mengakses salinan data peribadi yang berkaitan dengan anda yang dipegang oleh penerbit laman', 'Meminta pembetulan atau penghapusan data peribadi yang tidak tepat, tidak lengkap atau tidak lagi diperlukan', 'Membantah pemprosesan yang berdasarkan kepentingan sah atau membuat pilihan mengenai persetujuan pemprosesan', 'Mengemukakan aduan kepada Pihak Berkuasa Perlindungan Data Malaysia di bawah Kementerian Komunikasi dan Digital, atau kepada badan penyelia perlindungan data yang berwibawa di Kesatuan Eropah jika berkenaan'] },
           { heading: 'Perubahan kepada dasar ini', paragraphs: ['Kami boleh mengemas kini Dasar Privasi ini dari semasa ke semasa untuk mencerminkan perubahan teknikal, struktur undang-undang atau penambahan perkhidmatan. Tarikh kemas kini terakhir yang dipaparkan di atas menandakan semakan terbaru.'] }
         ]
@@ -346,12 +346,9 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         meta: { title: 'Tetapan Kuki · Panduan Pelawat Pantai Merdeka', description: 'Penjelasan kategori kuki yang digunakan di laman Panduan Pelawat Pantai Merdeka, kuki perlu, pilihan, penganalisis dan pemasaran, serta cara menguruskan persetujuan.' },
         pageTitle: 'Tetapan Kuki',
         updated: 'Masa kemas kini terakhir: Ogos 2026',
-        intro: 'Panduan Pelawat Pantai Merdeka menggunakan teknologi storan ringan seperti kuki dan localStorage hanya pada tahap minimum untuk mengekalkan fungsi teras laman. Halaman ini menerangkan setiap kategori yang mungkin wujud, item dalam kategori tersebut dan status lalai semasa penerbitan.',
+        intro: 'Laman ini tidak menetapkan kuki pihak pertama atau localStorage. Halaman ini menerangkan kategori perkhidmatan luar dan kawalan privasi penyemak imbas.',
         categories: [
-          { name: 'Kuki Perlu', chip: 'Kategori', status: 'Sentiasa aktif', desc: 'Kuki dan storan tempatan ini adalah kritikal untuk fungsi asas laman termasuk keselamatan capaian, pengesahan tetapan persetujuan kuki dan kebolehan menukar pilihan bahasa antara muka tanpa memerlukan skrip luar.', items: [
-            { name: 'Kuki Persetujuan', chip: 'Perlu', status: 'Sentiasa aktif', desc: 'Menyimpan catatan pilihan persetujuan kuki yang telah dinyatakan oleh pelawat sekiranya dialog persetujuan disediakan; ia tidak disediakan untuk tujuan penjejakan luar.' },
-            { name: 'Keutamaan Antaramuka', chip: 'Perlu', status: 'Aktif jika ditetapkan', desc: 'Mengingati pilihan bahasa penyemak imbas dan tetapan mod visual (jika ditambah kemudian) supaya tetapan anda dikekalkan di antara halaman.' }
-          ]},
+          { name: 'Kuki Perlu', chip: 'Cookie', status: 'Tidak ditetapkan', desc: 'Laman ini tidak menetapkan kuki pihak pertama atau localStorage. Pilihan bahasa menggunakan pautan halaman.', items: [] },
           { name: 'Kuki Analitik', chip: 'Kategori', status: 'Lalai: tidak aktif', desc: 'Kuki yang dikendalikan oleh perkhidmatan analitik untuk mengagregatkan data tingkah laku pelawat secara tanpa nama. Dalam versi semasa penerbitan, tiada pakej analitik pihak pertama (contoh: Google Analytics) dipasang. Jika analitik diaktifkan kemudian, ia hanya berfungsi selepas persetujuan eksplisit.', items: [
             { name: 'Analitik Prestasi Laman', chip: 'Pilihan', status: 'Tidak aktif', desc: 'Didaftarkan sebagai kemungkinan susun atur hadapan; tiada skrip semakan atau pengagregatan data dipasang semasa kemas kini terakhir.' }
           ]},
@@ -363,7 +360,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
           ]},
           { name: 'Kuki Pihak Ketiga', chip: 'Kategori', status: 'Di luar kawalan penerbit', desc: 'Peta benam Google Maps dan sumber pramuat Google Fonts boleh menetapkan kuki pihak ketiga di bawah domain Google LLC untuk tujuan keselamatan, pengesahan sesi dan kustomisasi peta. Kuki ini tidak boleh dilumpuhkan melalui tetapan pihak pertama laman ini.', items: [] }
         ],
-        management: { title: 'Pengurusan Persetujuan', paragraphs: ['Anda boleh mengubah tetapan kuki pada bila-bila masa dengan menyunting pilihan penyemak imbas anda. Sila rujuk dokumentasi rasmi penyemak imbas pilihan anda untuk langkah memadam atau menyekat kuki. Harap maklum bahawa menyekat kuki perlu boleh menjejaskan sebahagian fungsi laman.', 'Jika dialog persetujuan kuki disediakan dalam kemas kini akan datang, dua tindakan berikut akan disediakan:'], actions: { save: 'Simpan Keutamaan', reject: 'Tolak Semua' } }
+        management: { title: 'Pengurusan Persetujuan', paragraphs: ['Anda boleh mengubah tetapan kuki pada bila-bila masa dengan menyunting pilihan penyemak imbas anda. Sila rujuk dokumentasi rasmi penyemak imbas pilihan anda untuk langkah memadam atau menyekat kuki. Harap maklum bahawa menyekat kuki perlu boleh menjejaskan sebahagian fungsi laman.', 'Laman ini tidak menyediakan panel persetujuan; gunakan kawalan privasi penyemak imbas untuk kandungan pihak ketiga.'], actions: { save: 'Simpan Keutamaan', reject: 'Tolak Semua' } }
       }
     },
     alt: {
@@ -397,8 +394,8 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
   },
   en: {
     meta: {
-      title: 'Pantai Merdeka Kedah · Beach Guide, Tanjung Dawai Ferry & Chalets',
-      description: 'A visitor guide to Pantai Merdeka, Kedah — directions to the shore, the ferry to Tanjung Dawai, nearby chalets & homestays, seafood, and nearby stops like Pulau Sayak.',
+      title: 'Pantai Merdeka, Kota Kuala Muda · Kedah Beach & Directions',
+      description: 'Visit Pantai Merdeka in Kota Kuala Muda, Kedah, from Sungai Petani: directions, coastal walks, food, Gunung Jerai views and what to check for Tanjung Dawai boats.',
       skipToContent: 'Skip to content',
       brandLabel: 'Pantai Merdeka, return to the top',
       shareImageAlt: 'Coastal and seascape view at Pantai Merdeka'
@@ -407,14 +404,14 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
     localeSwitch: { label: 'Language' },
     hero: {
       region: 'Kota Kuala Muda · Kedah',
-      title: 'Sea, wind and a long afternoon.',
+      title: 'Pantai Merdeka in Kota Kuala Muda, Kedah.',
       lede: 'Pantai Merdeka is a place to arrive slowly, unroll a mat, eat something warm and wait for the sky to change colour.',
       primaryCta: 'Get directions',
       secondaryCta: 'Plan the visit',
       coordsLabel: 'Coordinates',
-      coordsValue: '5.666111° N\n100.367500° E',
+      coordsValue: '5.666757° N\n100.3674825° E',
       accessLabel: 'Area access',
-      accessValue: 'Every day\nThroughout the day',
+      accessValue: 'Check conditions\nbefore visiting',
       scrollNote: 'Follow the tide line'
     },
     intro: {
@@ -424,7 +421,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       copy: 'On the Kuala Muda coast, Pantai Merdeka sits closer to the weekend family ritual than to a purpose-built tourist estate. Its grounds are open, the mood is village and the afternoons are best enjoyed without haste.',
       facts: {
         location: { label: 'Location', value: '08500 Kota Kuala Muda, Kedah' },
-        entry: { label: 'Entry', value: 'Shore access is generally free of charge' },
+        entry: { label: 'Entry', value: 'Check current charges locally' },
         suitable: { label: 'Best for', value: 'Walking, picnics & watching dusk' },
         note: { label: 'Note', value: 'Facilities operate at the operator\'s discretion' }
       },
@@ -438,7 +435,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       items: [
         { label: 'Best timing', value: 'Late afternoon until dusk, for softer light and the more comfortable sea breeze that usually settles in.' },
         { label: 'Length of stay', value: 'Plan for roughly 2–4 hours to stroll, picnic, eat and watch the sky turn.' },
-        { label: 'Payments', value: 'Shore access is reported as free; carry small cash for toilets, food, activities or boat rides if available.' },
+        { label: 'Payments', value: 'Confirm entry, parking, facility and boat charges directly with operators; this guide has no verified current tariff.' },
         { label: 'Parking', value: 'Parking near the shore is usually available. Weekends and holidays can be busier; arrive early if needed.' }
       ],
       leaveNoTrace: 'Care for the shore together. Take your waste with you, use the bins provided and do not feed wildlife that approaches visitor areas.',
@@ -456,7 +453,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { title: 'Walk along the water line', copy: 'Choose footwear suited to the coastal surface and follow the tide line as it advances or recedes.' },
         { title: 'Spread a mat', copy: 'The open grounds are suitable for families wanting to rest, eat lightly and let children play in supervised areas.' },
         { title: 'Wait for dusk', copy: 'The unobstructed sea view gives late afternoon a reason of its own to stay a little longer.' },
-        { title: 'Think before swimming', copy: 'Water conditions change. Choose water activities only when weather, currents and local safety advice allow.' }
+        { title: 'Think before swimming', copy: 'This guide does not verify swimming safety. Follow posted restrictions, weather warnings and local authority advice; beach access does not mean swimming is permitted or safe.' }
       ]
     },
     food: {
@@ -493,7 +490,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { span: 'Across the river', title: 'Tanjung Dawai', copy: 'A coastal town linked by small boats across the Sungai Merbok estuary, subject to current operating schedules.' },
         { span: 'Watershed walk', title: 'Muara Merbok', copy: 'The river and coastal hinterland that reminds visitors Kuala Muda was shaped by water, mangroves and fishing villages.' },
         { span: 'Distant view', title: 'Gunung Jerai', copy: 'The iconic Kedah peak that occasionally frames the coastal horizon when the weather permits.' },
-        { span: 'Nearby island', title: 'Pulau Sayak', copy: 'A small island near Tanjung Dawai known for seafood dishes such as prawn noodle (mee udang); confirm hours and availability on site.' }
+        { span: 'Nearby coast', title: 'Pulau Sayak', copy: 'The Pulau Sayak coastal area is known for seafood dishes such as prawn noodle (mee udang); confirm hours and availability on site.' }
       ]
     },
     gallery: {
@@ -523,21 +520,21 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       title: 'Short answers before you leave.',
       copy: 'Practical information shifts with the weather, holidays and operator decisions. Use these questions as preparation, then confirm conditions on site.',
       items: [
-        { q: 'Is entry to Pantai Merdeka charged?', a: 'Access to the shore area is generally free of charge. Activities, toilets, boats and stall services are separate, so verify directly on site before making any decision.' },
+        { q: 'Is entry to Pantai Merdeka charged?', a: 'This guide has no verified current entry tariff. Confirm entry, parking, toilet, activity and boat charges directly with local operators before making a decision.' },
         { q: 'When is a good time to come?', a: 'For a more comfortable atmosphere, choose late afternoon when the heat eases and the sea breeze is usually more pleasant. Weather and tides change; prioritise on-site safety advice.' },
-        { q: 'Can I take a boat to Tanjung Dawai?', a: 'Boat services connect the area with Tanjung Dawai across the Sungai Merbok estuary. Schedules, fares, weather and operations are at the discretion of local operators.' },
+        { q: 'Can I take a boat to Tanjung Dawai?', a: 'Kedah Tourism describes a boat crossing toward Tanjung Dawai across the Sungai Merbok estuary; this guide does not verify service on your visit date. Schedules, fares, weather and operations are at the discretion of local operators.' },
         { q: 'Are there places to eat and toilets?', a: 'Food stalls and public toilets are reported near the shore. Selection, opening hours and toilet charges may vary by day and by operator.' },
         { q: 'Is this a suitable place for overnight camping?', a: 'Plan Pantai Merdeka as a day visit unless you have separately confirmed accommodation or a registered camping site in advance.' },
         { q: 'What are the ferry fare and schedule to Tanjung Dawai?', a: 'The ferry across the Sungai Merbok estuary to Tanjung Dawai is run by local operators. Fares, schedules and operations can shift with season and weather; confirm directly at the jetty before crossing.' },
         { q: 'Are there chalets or homestays nearby?', a: 'Around Pantai Merdeka and Tanjung Dawai you will find chalets, homestays and simple accommodations. Rates and availability vary by season; verify directly with your chosen operator.' },
-        { q: 'What is worth seeing at Pulau Sayak?', a: 'Pulau Sayak, near Tanjung Dawai, is known for seafood dishes such as prawn noodle (mee udang). Hours, charges and choices can change — check directly with local operators before visiting.' }
+        { q: 'What is worth seeing at Pulau Sayak?', a: 'The Pulau Sayak coastal area is known for seafood dishes such as prawn noodle (mee udang). Hours, charges and choices can change — check directly with local operators before visiting.' }
       ]
     },
     footer: {
       disclaimer: 'This site is an unofficial visitor guide and is not affiliated with Majlis Perbandaran Kota Kuala Muda (MPKM), Lembaga Pelancongan Negeri Kedah, Tourism Malaysia, any attraction operator or Google. Facilities, weather, boats and business details can change; confirm directly before visiting.',
       links: { plan: 'Plan', directions: 'Directions', faq: 'FAQ' },
       legal: { privacy: 'Privacy', terms: 'Terms', cookies: 'Cookies' },
-      sources: { heading: 'Official source', items: [{ text: 'Tourism Malaysia', url: 'https://www.malaysia.travel/' }] },
+      sources: { heading: 'Sources', items: [{ text: 'Kedah Tourism — Merdeka Beach', url: 'https://kedahtourism.gov.my/wp-content/uploads/2024/09/Merged-20240803-025117_compressed-1.pdf' }] },
       copyright: '© 2026 Pantai Merdeka Visitor Guide. All rights reserved.',
       imageRights: 'Proprietary rights and copyright in all photographs displayed on this site remain vested in their respective original photographers.'
     },
@@ -548,9 +545,9 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         updated: 'Last updated: August 2026',
         intro: 'The Pantai Merdeka Visitor Guide, published under an independent, non-commercial coastal visitor-guide initiative for the Kuala Muda shoreline, is committed to protecting the privacy of every visitor. This policy describes the minimum data collected, how it is used, the third parties involved and your rights under the Personal Data Protection Act 2010 (Malaysia) and, where applicable, the General Data Protection Regulation (GDPR) of the European Union.',
         sections: [
-          { heading: 'Information we collect', paragraphs: ['We only collect the minimum data necessary for the reliable delivery of content and stable functioning of the site. Under ordinary circumstances this dataset may include the following:'], list: ['Standard access-log data: IP address, browser type, pages requested, referring URL and visit timestamp', 'Necessary technical cookies and browser localStorage used to remember interface-language preference or explicit cookie-consent choice when offered', 'Any information you submit voluntarily through a contact form or by email, should you choose to reach out'] },
+          { heading: 'Information we collect', paragraphs: ['We only collect the minimum data necessary for the reliable delivery of content and stable functioning of the site. Under ordinary circumstances this dataset may include the following:'], list: ['Standard access-log data: IP address, browser type, pages requested, referring URL and visit timestamp', 'This static site sets no first-party cookies or localStorage; language selection uses page links', 'This site has no contact form or personal-data submission fields'] },
           { heading: 'How we use your information', paragraphs: ['The data collected is used exclusively for the following purposes, with no first-party targeted advertising pipelines:'], list: ['Improving site content, structure and usability based on aggregated usage patterns', 'Monitoring server stability, identifying errors and optimising static-asset delivery', 'Responding to requests, queries or visitor feedback', 'Complying with the legal obligations incumbent on a Malaysian-based web publisher'] },
-          { heading: 'Third-party services', paragraphs: ['The site may include embedded content or external preconditions handled by third parties. Each such service maintains its own independent privacy policy, separate from this one.'], list: ['Google Maps: embedded maps used for Pantai Merdeka location directions; may set third-party cookies under the Google LLC domain', 'Cloudflare Pages platform for performance and asset delivery; access logs handled in accordance with the Cloudflare Privacy Policy', 'No first-party behavioural analytics package (for example, Google Analytics) is enabled by default; should one be activated in a later build, explicit consent will be requested first'] },
+          { heading: 'Third-party services', paragraphs: ['The site may include embedded content or external preconditions handled by third parties. Each such service maintains its own independent privacy policy, separate from this one.'], list: ['Google Maps: embedded maps used for Pantai Merdeka location directions; may set third-party cookies under the Google LLC domain', 'Cloudflare platform for performance and asset delivery; access logs handled in accordance with the Cloudflare Privacy Policy', 'No first-party behavioural analytics package (for example, Google Analytics) is enabled by default; should one be activated in a later build, explicit consent will be requested first'] },
           { heading: 'Your rights', paragraphs: ['Depending on your jurisdiction and the applicable law, you may be entitled to the following:'], list: ['Requesting access to a copy of any personal data the site publisher holds relating to you', 'Requesting the correction or erasure of personal data that is inaccurate, incomplete or no longer required', 'Objecting to processing based on legitimate interest, or registering a preference regarding consent-based processing', 'Submitting a complaint to the Malaysian Personal Data Protection Commissioner under the Ministry of Communications and Digital, or to a competent EU supervisory authority where GDPR applies'] },
           { heading: 'Changes to this policy', paragraphs: ['We may update this Privacy Policy from time to time to reflect technical changes, regulatory updates or the addition of new services. The "Last updated" date shown above denotes the most recent revision.'] }
         ]
@@ -573,12 +570,9 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         meta: { title: 'Cookie Settings · Pantai Merdeka Visitor Guide', description: 'Explanation of cookie categories used on the Pantai Merdeka Visitor Guide — necessary, preference, analytics and marketing cookies, plus consent management.' },
         pageTitle: 'Cookie Settings',
         updated: 'Last updated: August 2026',
-        intro: 'The Pantai Merdeka Visitor Guide deploys lightweight storage technologies such as cookies and browser localStorage only at the minimum level required to preserve core functionality. This page explains each possible category, the items within them and their default status at the time of publication.',
+        intro: 'This site sets no first-party cookies or localStorage. This page describes external services and browser privacy controls.',
         categories: [
-          { name: 'Necessary Cookies', chip: 'Category', status: 'Always active', desc: 'These cookies and local storage entries are critical for the site\'s baseline functioning, including access security, cookie-consent verification and the ability to preserve interface-language preference without relying on external scripts.', items: [
-            { name: 'Consent Cookie', chip: 'Necessary', status: 'Always active', desc: 'Stores a record of the explicit cookie preferences chosen by the visitor whenever a consent dialog is presented; it is never used for cross-site tracking purposes.' },
-            { name: 'Interface Preference', chip: 'Necessary', status: 'Active if set', desc: 'Remembers the browser language selection and any visual-mode preference (if added in a future release) so that your settings persist across pages.' }
-          ]},
+          { name: 'Necessary Cookies', chip: 'Cookie', status: 'Not set by this site', desc: 'This site sets no first-party cookies or localStorage. Language selection uses page links.', items: [] },
           { name: 'Analytics Cookies', chip: 'Category', status: 'Default: inactive', desc: 'Cookies operated by analytics services that aggregate visitor behavioural data on an anonymous basis. In the current published build, no first-party analytics package — for example, Google Analytics — is installed. Should analytics ever be activated, it will only function after explicit opt-in consent has been obtained.', items: [
             { name: 'Site Performance Analytics', chip: 'Optional', status: 'Inactive', desc: 'Registered as a placeholder for a possible future frontend arrangement; no auditing script or data aggregation pipeline is installed at the time of the last update.' }
           ]},
@@ -590,7 +584,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
           ]},
           { name: 'Third-party Cookies', chip: 'Category', status: 'Outside publisher control', desc: 'The Google Maps embedded widget and Google Fonts preconnect sources may set third-party cookies under the Google LLC domain for security, session-authentication and map-customisation purposes. These cookies cannot be disabled via the first-party settings controls offered by this site.', items: [] }
         ],
-        management: { title: 'Consent Management', paragraphs: ['You can change your cookie settings at any time by modifying your browser-level options. Please refer to the official documentation of your chosen browser for step-by-step instructions on how to delete or block cookies. Note that blocking necessary cookies may impair some site functionality.', 'If a cookie-consent banner is provided in a future release, the following actions will be surfaced:'], actions: { save: 'Save Preferences', reject: 'Reject All' } }
+        management: { title: 'Consent Management', paragraphs: ['You can change your cookie settings at any time by modifying your browser-level options. Please refer to the official documentation of your chosen browser for step-by-step instructions on how to delete or block cookies. Note that blocking necessary cookies may impair some site functionality.', 'This site has no consent panel; use browser privacy controls for third-party content.'], actions: { save: 'Save Preferences', reject: 'Reject All' } }
       }
     },
     alt: {
@@ -600,7 +594,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       shade: 'Shaded tree cover at the edge of Pantai Merdeka'
     },
     stamps: {
-      intro: '05°39′58″N · 100°22′03″E',
+      intro: '5.666757°N · 100.3674825°E',
       visit: 'FIELD STAMP · LATE AFTERNOON',
       experience: 'TIDE LINE · 02—04 HRS',
       food: 'STALL · COASTAL',
@@ -624,8 +618,8 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
   },
   zh: {
     meta: {
-      title: 'Pantai Merdeka（独立海滩）吉打 · 海岸指南、Tanjung Dawai 渡轮与住宿',
-      description: '吉打州 Pantai Merdeka（独立海滩）访客指南：交通方向、前往 Tanjung Dawai 的渡轮、周边 chalet 与 homestay、海鲜，以及 Pulau Sayak 等邻近景点。',
+      title: 'Pantai Merdeka 独立海滩 · 吉打瓜拉慕达交通与游览指南',
+      description: '吉打瓜拉慕达 Pantai Merdeka（独立海滩）游览指南：从双溪大年出发的交通、海岸散步、美食、Gunung Jerai 景观，以及前往 Tanjung Dawai 乘船前须确认的事项。',
       skipToContent: '跳到正文',
       brandLabel: 'Pantai Merdeka，返回页首',
       shareImageAlt: 'Pantai Merdeka（独立海滩）沿岸与海面景观'
@@ -634,14 +628,14 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
     localeSwitch: { label: '语言' },
     hero: {
       region: 'Kota Kuala Muda · Kedah',
-      title: '海风与漫长的午后。',
+      title: '吉打瓜拉慕达 Pantai Merdeka（独立海滩）',
       lede: 'Pantai Merdeka（独立海滩）是一处适合缓慢抵达、铺开席垫、吃些热食、静静等待天色转换的海滨。',
       primaryCta: '查看路线',
       secondaryCta: '规划行程',
       coordsLabel: '坐标',
-      coordsValue: '北纬 5.666111°\n东经 100.367500°',
+      coordsValue: '北纬 5.666757°\n东经 100.3674825°',
       accessLabel: '区域开放',
-      accessValue: '全年开放\n无固定时段限制',
+      accessValue: '出发前\n确认当地情况',
       scrollNote: '沿潮汐线前行'
     },
     intro: {
@@ -651,7 +645,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       copy: '在 Kuala Muda（瓜拉慕达）沿海地带，Pantai Merdeka 更贴近周末家庭聚会的日常仪式，而非精心营造的旅游地产。场地开阔，氛围朴素如乡村，其午后最适合在不匆忙的状态下度过。',
       facts: {
         location: { label: '位置', value: '08500 Kota Kuala Muda, Kedah（吉打州瓜拉慕达县）' },
-        entry: { label: '入场', value: '海滩区域通常免费进入' },
+        entry: { label: '入场', value: '请在现场确认当前收费' },
         suitable: { label: '适合', value: '散步、野餐与观赏黄昏' },
         note: { label: '备注', value: '配套设施依运营方当日安排而定' }
       },
@@ -665,7 +659,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       items: [
         { label: '最佳时段', value: '下午晚些时候直至黄昏，光线较柔和，海风也通常较为舒适。' },
         { label: '建议停留', value: '约 2–4 小时，用于漫步、野餐、进食并观察天色转换。' },
-        { label: '费用', value: '海滩进入据报免费；建议携带小额现金，以支付洗手间、饮食、活动或乘船费用（如提供）。' },
+        { label: '费用', value: '请向运营方确认入场、停车、设施与船只的当前收费；本站未核实当前价目。' },
         { label: '停车', value: '近岸通常设有停车区。周末与假期可能较拥挤，必要时请提早抵达。' }
       ],
       leaveNoTrace: '请共同爱护海岸。将垃圾带走，使用指定垃圾桶，勿投喂靠近游客区的野生动物。',
@@ -683,7 +677,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { title: '沿水线行走', copy: '选择适合潮间带地表的鞋履，跟随潮汐的进退而前行。' },
         { title: '铺开席垫', copy: '开阔场地适合家庭短暂休息、轻食，并让孩童在可监护区域活动。' },
         { title: '等待黄昏', copy: '无遮挡的海面视野，让傍晚本身成为值得多停留片刻的理由。' },
-        { title: '游泳前三思', copy: '海水状态多变。仅在天气、洋流与当地安全指引允许时选择水上活动。' }
+        { title: '游泳前三思', copy: '本站未核实游泳安全。请遵守现场限制、天气警报及当地主管部门指引；海滩开放不代表允许或适宜游泳。' }
       ]
     },
     food: {
@@ -720,7 +714,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         { span: '跨河而行', title: 'Tanjung Dawai', copy: '以小艇横越 Sungai Merbok（莫博河）河口相连的沿海小镇，班次以现行运营时刻为准。' },
         { span: '水文足迹', title: 'Muara Merbok（莫博河口）', copy: '这片河流与沿海腹地提醒访客：Kuala Muda 的地貌由水流、红树林与渔村共同塑造。' },
         { span: '远方轮廓', title: 'Gunung Jerai（杰来山）', copy: '吉打州标志性山峰，在天气允许时，偶可从海岸一带望见其轮廓。' },
-        { span: '邻近小岛', title: 'Pulau Sayak', copy: '邻近 Tanjung Dawai 的小岛，以虾面（mee udang）等海鲜料理闻名；请于现场直接核实营业时间与供应情况。' }
+        { span: '邻近海岸', title: 'Pulau Sayak', copy: 'Pulau Sayak 沿海一带，以虾面（mee udang）等海鲜料理闻名；请于现场直接核实营业时间与供应情况。' }
       ]
     },
     gallery: {
@@ -750,21 +744,21 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       title: '出发前的简明回答。',
       copy: '实用信息会随天气、节假日与运营方决策而变化。以下问题仅作准备参考，最终请以现场核实为准。',
       items: [
-        { q: '进入 Pantai Merdeka 是否收费？', a: '海滩区域一般可免费进入。活动项目、洗手间、乘船及摊位服务为独立计费项目，作出决定前请在现场直接核实。' },
+        { q: '进入 Pantai Merdeka 是否收费？', a: '本站未核实当前入场价目。决定前请向当地运营方确认入场、停车、洗手间、活动与乘船收费。' },
         { q: '什么时段到访较为合适？', a: '若追求更舒适的体验，可选择下午晚些时候，此时暑热缓解，海风通常更宜人。天气与潮汐均会变化；请优先遵循现场安全指引。' },
-        { q: '是否可以乘船前往 Tanjung Dawai？', a: '目前有船班服务横越 Sungai Merbok（莫博河）河口，连接本区域与 Tanjung Dawai。班次、票价、天气条件与运营安排，均以当地运营方为准。' },
+        { q: '是否可以乘船前往 Tanjung Dawai？', a: 'Kedah Tourism 介绍了跨越 Sungai Merbok（莫博河）河口前往 Tanjung Dawai 的船行；本站未核实您到访当天的服务。班次、票价、天气条件与运营安排，均以当地运营方为准。' },
         { q: '附近是否有餐饮与洗手间？', a: '据报海滩近处设有饮食摊位与公共洗手间。可供选择的品类、开放时间与洗手间收费，会因日期与运营方而异。' },
         { q: '这里适合通宵露营吗？', a: '除非您已另行确认住宿或已登记的露营场地，否则建议将 Pantai Merdeka 作为日间行程。' },
         { q: '前往 Tanjung Dawai 的渡轮票价与班次如何？', a: '横越 Sungai Merbok（莫博河）河口、连接 Tanjung Dawai 的渡轮由当地运营方经营。票价、班次与运营安排会随季节与天气变动；过江前请直接向码头核实。' },
         { q: '附近是否有 chalet 或 homestay？', a: 'Pantai Merdeka 与 Tanjung Dawai 周边提供 chalet、homestay 及简易住宿选择。价格与可订状态随季节而异；请直接向意向商户确认。' },
-        { q: 'Pulau Sayak 有什么可看？', a: '邻近 Tanjung Dawai 的 Pulau Sayak 以虾面（mee udang）等海鲜料理闻名。营业时间、收费与选择可能变动；到访前请直接向当地运营方核实。' }
+        { q: 'Pulau Sayak 有什么可看？', a: 'Pulau Sayak 沿海一带以虾面（mee udang）等海鲜料理闻名。营业时间、收费与选择可能变动；到访前请直接向当地运营方核实。' }
       ]
     },
     footer: {
       disclaimer: '本站为非官方访客指南，与 Majlis Perbandaran Kota Kuala Muda（瓜拉慕达市议会，MPKM）、Lembaga Pelancongan Negeri Kedah（吉打州旅游局）、Tourism Malaysia（马来西亚旅游促进局）、任何景点运营方或 Google 均无关联。设施、天气、船班与商户信息可能变更；到访前请直接核实。',
       links: { plan: '规划', directions: '交通', faq: '常见问题' },
       legal: { privacy: '隐私政策', terms: '服务条款', cookies: 'Cookie 设置' },
-      sources: { heading: '官方来源', items: [{ text: 'Tourism Malaysia（马来西亚旅游促进局）', url: 'https://www.malaysia.travel/' }] },
+      sources: { heading: '资料来源', items: [{ text: 'Kedah Tourism — Merdeka Beach', url: 'https://kedahtourism.gov.my/wp-content/uploads/2024/09/Merged-20240803-025117_compressed-1.pdf' }] },
       copyright: '© 2026 Pantai Merdeka 访客指南（吉打瓜拉慕达） · 保留所有权利。',
       imageRights: '本网站所展示的所有图片之产权与版权，均归各自原摄影者所有。'
     },
@@ -775,9 +769,9 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         updated: '最后更新：2026 年 8 月',
         intro: 'Pantai Merdeka 访客指南由一项独立、非营利的吉打沿海访客资讯计划运营，始终致力于保护每位访客的隐私。本政策阐明本项目收集数据的最低范围、使用方式、涉及第三方，以及在《2010 年个人数据保护法》（马来西亚）与适用情形下欧盟《通用数据保护条例》（GDPR）之下，您所享有的各项权利。',
         sections: [
-          { heading: '我们收集的信息', paragraphs: ['我们仅收集稳定交付内容与维持网站基本功能所必需的最低限度数据。在常规场景下，数据集可能包含以下类别：'], list: ['标准访问日志：IP 地址、浏览器类型、请求页面、来源 URL 与访问时间戳', '必要的技术 Cookie 与浏览器本地存储（localStorage），用于记录语言界面偏好或在您主动确认后的 Cookie 同意选择', '若您选择通过联系表单或邮件主动与我们沟通，则包括您自愿提交的任何信息'] },
+          { heading: '我们收集的信息', paragraphs: ['我们仅收集稳定交付内容与维持网站基本功能所必需的最低限度数据。在常规场景下，数据集可能包含以下类别：'], list: ['标准访问日志：IP 地址、浏览器类型、请求页面、来源 URL 与访问时间戳', '本静态网站不设置第一方 Cookie 或 localStorage；语言通过页面链接选择', '本网站不设联系表单或个人数据提交字段'] },
           { heading: '我们如何使用您的信息', paragraphs: ['收集到的数据仅专用于以下目的，本项目不构建任何第一方定向广告通道：'], list: ['基于聚合使用模式，改进内容、结构与整体可用性', '监测服务稳定性、定位异常并优化静态资源分发', '回应访客的请求、问询与反馈', '履行马来西亚境内网站发布者应承担的法定义务'] },
-          { heading: '第三方服务', paragraphs: ['本网站可能嵌入由第三方运营的内容或外部前置资源。每项第三方服务均各自维护独立的隐私政策，与本政策彼此分离。'], list: ['Google 地图（Google Maps）：用于 Pantai Merdeka 坐标与位置导航的嵌入地图；可能在 Google LLC 旗下域名设置第三方 Cookie', 'Cloudflare Pages 发布平台：用于性能与静态资源分发，访问日志按 Cloudflare 隐私政策处理', '默认未启用任何第一方行为分析套件（例如 Google Analytics）；如后续构建中引入，将先取得明确的 opt-in 同意'] },
+          { heading: '第三方服务', paragraphs: ['本网站可能嵌入由第三方运营的内容或外部前置资源。每项第三方服务均各自维护独立的隐私政策，与本政策彼此分离。'], list: ['Google 地图（Google Maps）：用于 Pantai Merdeka 坐标与位置导航的嵌入地图；可能在 Google LLC 旗下域名设置第三方 Cookie', 'Cloudflare 发布平台：用于性能与静态资源分发，访问日志按 Cloudflare 隐私政策处理', '默认未启用任何第一方行为分析套件（例如 Google Analytics）；如后续构建中引入，将先取得明确的 opt-in 同意'] },
           { heading: '您的权利', paragraphs: ['根据您的司法辖区与适用法律，您可能有权主张以下权利：'], list: ['请求获取网站发布者持有的、与您相关的个人数据副本', '要求对不准确、不完整或不再必要的个人数据进行更正或删除', '对基于合法利益的处理提出反对，或在基于同意的处理中行使同意偏好', '向马来西亚通讯及数字部下属的个人数据保护专员办公室提出投诉；在 GDPR 适用的情形下，向具有管辖权的欧盟成员国监管机构投诉'] },
           { heading: '本政策的修订', paragraphs: ['我们可能不时更新本隐私政策，以反映技术变更、监管新规或新增服务。顶部所示「最后更新」日期代表当前最新一次修订。'] }
         ]
@@ -800,12 +794,9 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
         meta: { title: 'Cookie 设置 · Pantai Merdeka 访客指南', description: 'Pantai Merdeka 访客指南的 Cookie 分类说明——必要、偏好、分析、营销四类及其各自子项，以及偏好管理与默认状态。' },
         pageTitle: 'Cookie 设置',
         updated: '最后更新：2026 年 8 月',
-        intro: 'Pantai Merdeka 访客指南仅在维持核心功能所需的最低限度内，部署 Cookie 与浏览器 localStorage 等轻量存储技术。本页逐类说明可能存在的用途、对应子项，以及发布时的默认启用状态。',
+        intro: '本网站不设置第一方 Cookie 或 localStorage。本页说明外部服务与浏览器隐私设置。',
         categories: [
-          { name: '必要 Cookie', chip: '类别', status: '始终保持活跃', desc: '此类 Cookie 与本地存储项，对网站的基准运行至关重要，包括访问安全、Cookie 同意的留存记录，以及无需外部脚本即可跨页面保持的语言界面偏好。', items: [
-            { name: '同意记录', chip: '必要', status: '始终保持活跃', desc: '在您通过同意对话框（若提供）明确表达偏好后，记录该选择；绝不用于跨域追踪。' },
-            { name: '界面偏好', chip: '必要', status: '设置后活跃', desc: '记忆语言切换选项，以及未来版本可能引入的视觉模式开关，确保设置在页面跳转后保持一致。' }
-          ]},
+          { name: '必要 Cookie', chip: 'Cookie', status: '未设置', desc: '本网站不设置第一方 Cookie 或 localStorage。语言通过页面链接选择。', items: [] },
           { name: '分析型 Cookie', chip: '类别', status: '默认：未激活', desc: '由分析服务运营、用于匿名聚合访客行为数据的 Cookie。在当前公开发布版本中，并未安装任何第一方分析套件（如 Google Analytics）；如后续启用，将严格依赖 opt-in 明示同意。', items: [
             { name: '站点性能分析', chip: '可选', status: '未激活', desc: '仅作为未来前端布局可能引入的占位名称；至本政策最后更新日止，未安装任何审计脚本或数据聚合管道。' }
           ]},
@@ -817,7 +808,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
           ]},
           { name: '第三方 Cookie', chip: '类别', status: '出版方无法直接控制', desc: 'Google 地图嵌入组件与 Google Fonts 预连接资源，可能出于安全、会话认证或地图定制目的，在 Google LLC 域下设置第三方 Cookie。此类 Cookie 无法通过本站提供的第一方设置面板直接禁用。', items: [] }
         ],
-        management: { title: '同意管理', paragraphs: ['您可随时通过修改浏览器层级的选项来调整 Cookie 设置。具体删除或阻止 Cookie 的操作步骤，请参阅您所用浏览器的官方文档。请注意，阻止必要 Cookie 可能影响部分网站功能。', '若在未来版本中提供交互式 Cookie 同意横幅，则将出现以下两种操作：'], actions: { save: '保存偏好设置', reject: '拒绝一切' } }
+        management: { title: '同意管理', paragraphs: ['您可随时通过修改浏览器层级的选项来调整 Cookie 设置。具体删除或阻止 Cookie 的操作步骤，请参阅您所用浏览器的官方文档。请注意，阻止必要 Cookie 可能影响部分网站功能。', '本网站不设同意面板；请使用浏览器隐私设置管理第三方内容。'], actions: { save: '保存偏好设置', reject: '拒绝一切' } }
       }
     },
     alt: {
@@ -827,7 +818,7 @@ export const dictionary: Record<LocaleKey, ContentDictionary> = {
       shade: 'Pantai Merdeka（独立海滩）边缘的树荫覆盖'
     },
     stamps: {
-      intro: '05°39′58″N · 100°22′03″E',
+      intro: '5.666757°N · 100.3674825°E',
       visit: '实地戳记 · 午后时段',
       experience: '潮汐线 · 02—04 小时',
       food: '沿岸 · 食摊',

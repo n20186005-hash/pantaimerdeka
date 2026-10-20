@@ -16,13 +16,15 @@ const data =
   kind === 'privacy' ? c.legal.privacy :
   kind === 'terms'   ? c.legal.terms   :
                         c.legal.cookies;
+const sections = 'sections' in data ? data.sections : [];
+const cookies = c.legal.cookies;
 const localeKeys = Object.keys(locales) as LocaleKey[];
 const legalLabel =
   kind === 'privacy' ? c.footer.legal.privacy :
   kind === 'terms'   ? c.footer.legal.terms   :
                         c.footer.legal.cookies;
 const returnHomeLabel = locale === 'ms' ? 'Kembali ke laman utama' : locale === 'en' ? 'Back to home' : '返回首页';
-const documentStamp = locale === 'ms' ? 'DOKUMEN RASMI' : locale === 'en' ? 'OFFICIAL DOCUMENT' : '官方文件';
+const documentStamp = locale === 'ms' ? 'MAKLUMAT LAMAN' : locale === 'en' ? 'SITE INFORMATION' : '网站说明';
 const tableOfContentsLabel = locale === 'ms' ? 'Kandungan' : locale === 'en' ? 'Contents' : '目录';
 ---
 <BaseLayout title={data.meta.title} description={data.meta.description} {locale} legal={kind}>
@@ -58,12 +60,12 @@ const tableOfContentsLabel = locale === 'ms' ? 'Kandungan' : locale === 'en' ? '
         <div class="legal-stamp"><LogoMark /><span>{documentStamp}</span></div>
         {kind !== 'cookies' ? (
           <ol class="legal-toc">
-            {data.sections.map((s, i) => <li><a href={`#sec-${i + 1}`}>{i + 1}. {s.heading}</a></li>)}
+            {sections.map((s, i) => <li><a href={`#sec-${i + 1}`}>{i + 1}. {s.heading}</a></li>)}
           </ol>
         ) : (
           <ol class="legal-toc">
-            {data.categories.map((cat, i) => <li><a href={`#sec-${i + 1}`}>{i + 1}. {cat.name}</a></li>)}
-            <li><a href="#sec-management">{data.categories.length + 1}. {data.management.title}</a></li>
+            {cookies.categories.map((cat, i) => <li><a href={`#sec-${i + 1}`}>{i + 1}. {cat.name}</a></li>)}
+            <li><a href="#sec-management">{cookies.categories.length + 1}. {cookies.management.title}</a></li>
           </ol>
         )}
       </aside>
@@ -71,7 +73,7 @@ const tableOfContentsLabel = locale === 'ms' ? 'Kandungan' : locale === 'en' ? '
       <div class="legal-content">
         <p class="legal-intro">{data.intro}</p>
 
-        {kind !== 'cookies' ? data.sections.map((s, i) => (
+        {kind !== 'cookies' ? sections.map((s, i) => (
           <section id={`sec-${i + 1}`} class="legal-section">
             <h2><span>{String(i + 1).padStart(2, '0')}</span>{s.heading}</h2>
             {s.paragraphs.map(p => <p>{p}</p>)}
@@ -81,7 +83,7 @@ const tableOfContentsLabel = locale === 'ms' ? 'Kandungan' : locale === 'en' ? '
           </section>
         )) : null}
 
-        {kind === 'cookies' ? data.categories.map((cat, i) => (
+        {kind === 'cookies' ? cookies.categories.map((cat, i) => (
           <section id={`sec-${i + 1}`} class="legal-section legal-category">
             <h2><span>{String(i + 1).padStart(2, '0')}</span>{cat.name}</h2>
             <div class="legal-category-head">
@@ -110,17 +112,9 @@ const tableOfContentsLabel = locale === 'ms' ? 'Kandungan' : locale === 'en' ? '
 
         {kind === 'cookies' ? (
           <section id="sec-management" class="legal-section">
-            <h2><span>{String(data.categories.length + 1).padStart(2, '0')}</span>{data.management.title}</h2>
-            {data.management.paragraphs.map(p => <p>{p}</p>)}
-            <div class="cookie-actions">
-              <button type="button" class="cookie-action cookie-action--save" disabled>{data.management.actions.save}</button>
-              <button type="button" class="cookie-action cookie-action--reject" disabled>{data.management.actions.reject}</button>
-              <span class="cookie-action-hint">
-                {locale === 'ms' ? 'Butang dinyahaktifkan dalam halaman tetapan statik; gunakan pilihan penyemak imbas anda.' :
-                 locale === 'en' ? 'Buttons are disabled on this static settings page; use your browser controls instead.' :
-                                   '本静态设置页的按钮为占位说明；请直接使用浏览器隐私设置管理 Cookie。'}
-              </span>
-            </div>
+            <h2><span>{String(cookies.categories.length + 1).padStart(2, '0')}</span>{cookies.management.title}</h2>
+            {cookies.management.paragraphs.map(p => <p>{p}</p>)}
+
           </section>
         ) : null}
       </div>

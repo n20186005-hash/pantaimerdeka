@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import type { LocaleKey } from '../i18n/config';
 import { locales } from '../i18n/config';
-import { hreflangEntries, localizePath } from '../i18n/routing';
+import { hreflangEntries } from '../i18n/routing';
 import type { LegalPageKind } from '../i18n/routing';
 import { getContent } from '../i18n/content';
 interface Props {
@@ -10,8 +10,9 @@ interface Props {
   description: string;
   locale: LocaleKey;
   legal?: LegalPageKind;
+  noindex?: boolean;
 }
-const { title, description, locale, legal } = Astro.props;
+const { title, description, locale, legal, noindex = false } = Astro.props;
 const c = getContent(locale);
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 const shareImage = Astro.site ? new URL('/gallery/pantai-merdeka-2.jpg', Astro.site) : undefined;
@@ -24,8 +25,9 @@ const htmlLang = locale === 'zh' ? 'zh-Hans' : locale;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    {canonical && <link rel="canonical" href={canonical} />}
-    {hreflangs.map(({ code, href }) => <link rel="alternate" hreflang={code} href={href} />)}
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {!noindex && canonical && <link rel="canonical" href={canonical} />}
+    {!noindex && hreflangs.map(({ code, href }) => <link rel="alternate" hreflang={code} href={href} />)}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={locale === 'zh' ? 'zh_CN' : (locale === 'en' ? 'en_US' : 'ms_MY')} />
     {(Object.keys(locales) as LocaleKey[]).filter(k => k !== locale).map(k => <meta property="og:locale:alternate" content={k === 'zh' ? 'zh_CN' : (k === 'en' ? 'en_US' : 'ms_MY')} />)}
@@ -33,6 +35,10 @@ const htmlLang = locale === 'zh' ? 'zh-Hans' : locale;
     <meta property="og:description" content={description} />
     {canonical && <meta property="og:url" content={canonical} />}
     {shareImage && <meta property="og:image" content={shareImage} />}
+    <meta property="og:image:alt" content={c.meta.shareImageAlt} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {shareImage && <meta name="twitter:image" content={shareImage} />}
     <meta name="twitter:card" content={shareImage ? 'summary_large_image' : 'summary'} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.svg" sizes="32x32" type="image/svg+xml" />

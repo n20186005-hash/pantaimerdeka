@@ -1,10 +1,10 @@
 # Pantai Merdeka · Laman Pelawat
 
-Laman satu halaman berbahasa Melayu untuk Pantai Merdeka, Kota Kuala Muda, Kedah. Projek ini menggunakan **Astro 7**, **Tailwind CSS 4**, **TypeScript** dan pelaksanaan aset statik melalui **Cloudflare Workers**. Tiada pangkalan data, log masuk atau CMS diperlukan.
+Laman panduan dalam Bahasa Melayu, bahasa Inggeris dan bahasa Cina untuk Pantai Merdeka, Kota Kuala Muda, Kedah. Projek ini menggunakan **Astro 7**, **Tailwind CSS 4**, **TypeScript** dan pelaksanaan aset statik melalui **Cloudflare Workers**. Tiada pangkalan data, log masuk atau CMS diperlukan.
 
 | Keperluan | Nilai |
 | --- | --- |
-| Node.js | 22.13.0 (`.node-version`) |
+| Node.js | 22.13.0 (`.node-version`); minimum 22.12.0 |
 | pnpm | 9.15.5 (`packageManager`) |
 | Pemasangan | `CI=1 corepack pnpm install --frozen-lockfile` |
 | Semakan | `pnpm check` |
@@ -13,7 +13,7 @@ Laman satu halaman berbahasa Melayu untuk Pantai Merdeka, Kota Kuala Muda, Kedah
 
 ## Konfigurasi URL tunggal
 
-Tambah `PUBLIC_SITE_URL` sebelum membina, contohnya `PUBLIC_SITE_URL=https://domain-anda.example`. Nilai ini ialah satu-satunya konfigurasi domain dan Astro menggunakannya untuk canonical, Open Graph, JSON-LD serta sitemap. Jika nilai tidak ditetapkan, projek masih membina dengan baik; tag URL mutlak dan sitemap digugurkan tanpa menggunakan domain palsu.
+Tambah `PUBLIC_SITE_URL` sebelum membina, contohnya `PUBLIC_SITE_URL=https://domain-anda.example`. Nilai ini ialah satu-satunya konfigurasi domain dan Astro menggunakannya untuk canonical, Open Graph, JSON-LD serta sitemap. Jika nilai tidak ditetapkan, projek menggunakan https://pantaimerdeka.com/ sebagai domain canonical.
 
 ## Penyelenggaraan kandungan
 
